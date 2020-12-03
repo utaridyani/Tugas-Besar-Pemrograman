@@ -3,7 +3,14 @@
 
 int bmi;
 
+void koor(int x , int y);
+void bersih();
+void delay(int sec);
+void setcolor(unsigned short color);
+void Loading();
+
 int main(){
+  Loading();
   utama();
 }
 
@@ -132,3 +139,43 @@ void utama(){
 
 return 0;
 }
+
+void koor(int x , int y)
+{
+    HANDLE h;
+    COORD c;
+    c.X = x;
+    c.Y = y;
+    h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(h,c);
+}
+void bersih()
+{
+    system("cls");
+}
+
+void delay(int sec)
+{
+    Sleep(sec);
+}
+
+void setcolor(unsigned short color)
+{
+    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hCon,color);
+}
+
+void Loading(){
+
+    bersih();
+    koor(40,9);
+    printf("||===============================||\n");
+    koor(40,10);
+    printf("||    Rekomendasi Menu Sehat     ||\n");
+    koor(40,11);
+    printf("||===============================||\n");
+    koor(40,14);
+    for(int i=1 ; i<=34 ; i++){
+        setcolor(7);
+        printf("%c",219);
+        Sleep(60); } }
