@@ -4,9 +4,9 @@
 int gender, age1;       /* Variabel untuk memasukkan nilai
                         age1   = untuk memasukkan dan menyimpan nilai penentuan usia
                         gender = untuk memasukkan dan menyimpan nilai penentuan jenis kelamin*/
-double mess, height;    /* Variabel untuk memasukkan nilai
+double mass, height;    /* Variabel untuk memasukkan nilai
                         height = untuk memasukkan nilai tinggi badan
-                        mess   = untuk memasukkan nilai berat badan*/
+                        mass   = untuk memasukkan nilai berat badan*/
 double hasil;           /* Variabel untuk memasukkan nilai 
                         hasil = total nilai aritmatika dalam perhitungan kebutuhan kalori harian*/
 
@@ -53,7 +53,7 @@ void utama(){
     printf("masukkan tinggi badan dalam cm : ");
     scanf ("%lf",&height);
     printf("masukkan berat badan dalam kg  : ");
-    scanf ("%lf",&mess);
+    scanf ("%lf",&mass);
     hasil = BMR()/1000;
     printf("Kebutuhan kalori yang anda perlukan setiap harinya sebesar %.2lf kcals\n", hasil);
     tanya();
@@ -62,10 +62,10 @@ void utama(){
 double BMR(){
 
     if(gender == 1){
-        return 88362 + (13397*mess) + (4799*height) - (5677*age1);
+        return 88362 + (13397*mass) + (4799*height) - (5677*age1);
     }
     else if(gender == 2){
-        return 447593 + (9247*mess) + (3.098*height) - (433*age1);
+        return 447593 + (9247*mass) + (3.098*height) - (433*age1);
     }
 }
 
