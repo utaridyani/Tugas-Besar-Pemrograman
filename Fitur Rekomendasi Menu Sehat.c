@@ -45,7 +45,7 @@ bersih();
 
     if(bmi == 1){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|                                                                       |\n");
+        printf("|Anda sangat kekurangan gizi                                            |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
         printf("|                                                                       |\n");
@@ -63,7 +63,7 @@ bersih();
         }
     else if(bmi == 2){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|                                                                       |\n");
+        printf("|Anda kekurangan gizi                                                                       |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
         printf("|                                                                       |\n");
@@ -81,7 +81,7 @@ bersih();
         }
     else if(bmi == 3){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|                                                                       |\n");
+        printf("| Anda sehat                                                            |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("| Anda bebas mengonsumsi makanan apa saja.                              |\n");
         printf("| Dengan catatan, gizi dalam setiap makanan yang anda                   |\n");
@@ -93,7 +93,7 @@ bersih();
         }
      else if(bmi == 4){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|                                                                       |\n");
+        printf("|Anda kelebihan gizi                                                    |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
         printf("|                                                                       |\n");
@@ -112,7 +112,7 @@ bersih();
         }
     else if(bmi == 5){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|                                                                       |\n");
+        printf("|Anda sangat kelebihan gizi                                             |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
         printf("|  Makanan dengan kadar kalori yang rendah                              |\n");
@@ -150,7 +150,7 @@ void Rekomendasi_makanan (){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
-    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||   Yang Sangat Kekurangan Gizi   ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Rekomendasi |  Kentang, Nasi, Susu, Kacang     |\n");
@@ -175,7 +175,7 @@ void Rekomendasi_makanan (){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
-    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||      Yang Kekurangan Gizi       ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Rekomendasi |  Roti, Nasi, Tempe, Tahu         |\n");
@@ -200,7 +200,7 @@ void Rekomendasi_makanan (){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
-    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||            Yang Sehat           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Rekomendasi |  Anda bebas mengonsumsi makanan  |\n");
@@ -230,7 +230,7 @@ void Rekomendasi_makanan (){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
-    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||       Yang Kelebihan Gizi       ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Rekomendasi |  Oatmeal, Apel, Putih Telur      |\n");
@@ -259,7 +259,7 @@ void Rekomendasi_makanan (){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
-    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||   Yang Sangat Kelebihan Gizi    ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Rekomendasi |  Tomat Ceri, Semangka, Bayam     |\n");
