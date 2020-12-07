@@ -13,6 +13,7 @@ void Loading();
 int main(){
   Loading();
   utama();
+  Rekomendasi_makanan();
 }
 
 void utama(){
@@ -139,6 +140,149 @@ bersih();
     printf("+-----------------------------------------------------------------------+\n");
 
 return 0;
+}
+
+void Rekomendasi_makanan (){
+
+    if(bmi==1){
+    FILE*fpoin;
+    fpoin = fopen("Rekomendasi Makanan.txt","w");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
+    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Rekomendasi |  Kentang, Nasi, Susu, Kacang     |\n");
+    fprintf(fpoin,"| Makanan     |  Alpukat, Daging Merah           |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Kesimpulan  | Anda harus mengonsumsi makanan   |\n");
+    fprintf(fpoin,"|             | dengan kadar protein dan         |\n");
+    fprintf(fpoin,"|             | karbohidrat yang tinggi.         |\n");
+    fprintf(fpoin,"|             |                                  |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"|                  Terima Kasih                  |\n");
+    fprintf(fpoin,"|          Telah menggunakan program ini         |\n");
+    fprintf(fpoin,"|          Jaga kesehatan dan pola makan         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fclose (fpoin);
+    }
+    if(bmi==2){
+    FILE*fpoin;
+    fpoin = fopen("Rekomendasi Makanan.txt","w");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
+    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Rekomendasi |  Roti, Nasi, Tempe, Tahu         |\n");
+    fprintf(fpoin,"| Makanan     |  Keju, Daging                    |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Kesimpulan  | Anda harus mengonsumsi makanan   |\n");
+    fprintf(fpoin,"|             | dengan kadar protein dan         |\n");
+    fprintf(fpoin,"|             | karbohidrat yang seimbang.       |\n");
+    fprintf(fpoin,"|             |                                  |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"|                  Terima Kasih                  |\n");
+    fprintf(fpoin,"|          Telah menggunakan program ini         |\n");
+    fprintf(fpoin,"|          Jaga kesehatan dan pola makan         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fclose (fpoin);
+    }
+    if(bmi==3){
+    FILE*fpoin;
+    fpoin = fopen("Rekomendasi Makanan.txt","w");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
+    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Rekomendasi |  Anda bebas mengonsumsi makanan  |\n");
+    fprintf(fpoin,"| Makanan     |  apa saja. Dengan catatan        |\n");
+    fprintf(fpoin,"|             |  gizi dalam setiap makanan yang  |\n");
+    fprintf(fpoin,"|             |  anda konsumsi seimbang dan      |\n");
+    fprintf(fpoin,"|             |  tidak berlebihan.               |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Kesimpulan  | Anda harus tetap memerhatikan    |\n");
+    fprintf(fpoin,"|             | 4 sehat 5 sempurna setiap kali   |\n");
+    fprintf(fpoin,"|             | anda mengonsumsi makanan agar    |\n");
+    fprintf(fpoin,"|             | tidak kekurangan maupun          |\n");
+    fprintf(fpoin,"|             | kelebihan gizi.                  |\n");
+    fprintf(fpoin,"|             |                                  |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"|                  Terima Kasih                  |\n");
+    fprintf(fpoin,"|          Telah menggunakan program ini         |\n");
+    fprintf(fpoin,"|          Jaga kesehatan dan pola makan         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fclose (fpoin);
+    }
+    if(bmi==4){
+    FILE*fpoin;
+    fpoin = fopen("Rekomendasi Makanan.txt","w");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
+    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Rekomendasi |  Oatmeal, Apel, Putih Telur      |\n");
+    fprintf(fpoin,"| Makanan     |  Brokoli, Daging Ikan, Cemilan   |\n");
+    fprintf(fpoin,"|             |  Rendah Kalori                   |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Kesimpulan  | Anda harus menghindari makanan   |\n");
+    fprintf(fpoin,"|             | berlemak, berkadar gula tinggi,  |\n");
+    fprintf(fpoin,"|             | dan kadar garam tinggi. Selain   |\n");
+    fprintf(fpoin,"|             | itu, anda juga harus mengatur    |\n");
+    fprintf(fpoin,"|             | porsi makan anda agar tidak      |\n");
+    fprintf(fpoin,"|             | berlebih dan rajin olahraga.     |\n");
+    fprintf(fpoin,"|             |                                  |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"|                  Terima Kasih                  |\n");
+    fprintf(fpoin,"|          Telah menggunakan program ini         |\n");
+    fprintf(fpoin,"|          Jaga kesehatan dan pola makan         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fclose (fpoin);
+    }
+    if(bmi==5){
+    FILE*fpoin;
+    fpoin = fopen("Rekomendasi Makanan.txt","w");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"|     ||  Rekomendasi Makanan Bagi Anda  ||      |\n");
+    fprintf(fpoin,"|     ||          ------------           ||      |\n");
+    fprintf(fpoin,"|     ||=================================||      |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Rekomendasi |  Tomat Ceri, Semangka, Bayam     |\n");
+    fprintf(fpoin,"| Makanan     |  Mentimun, Daun Bawang,          |\n");
+    fprintf(fpoin,"|             |  Kembang Kol                     |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"| Kesimpulan  | Anda harus mengonsumsi makanan   |\n");
+    fprintf(fpoin,"|             | dengan kadar kalori yang rendah. |\n");
+    fprintf(fpoin,"|             | Anda juga harus mengurangi       |\n");
+    fprintf(fpoin,"|             | konsumsi makanan yang berminyak  |\n");
+    fprintf(fpoin,"|             | dan berlemak. Anda perlu         |\n");
+    fprintf(fpoin,"|             | mengetahui kadar gizi tiap       |\n");
+    fprintf(fpoin,"|             | makanan yang anda santap         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+-------------+----------------------------------+\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"|                  Terima Kasih                  |\n");
+    fprintf(fpoin,"|          Telah menggunakan program ini         |\n");
+    fprintf(fpoin,"|          Jaga kesehatan dan pola makan         |\n");
+    fprintf(fpoin,"|                                                |\n");
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fclose (fpoin);
+    }
 }
 
 void koor(int x , int y)
