@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
+#include<windows.h>
 
 int bmi;
 
@@ -15,12 +16,12 @@ int main(){
 }
 
 void utama(){
+bersih();
 
-
-                        puts("||=================================||");
-                        puts("||         Rekomendasi Menu        ||");
-                        puts("||          Makanan Sehat          ||");
-                        puts("||=================================||");
+    printf("\t\t||=================================||\n");
+    printf("\t\t||         Rekomendasi Menu        ||\n");
+    printf("\t\t||          Makanan Sehat          ||\n");
+    printf("\t\t||=================================||\n");
 
     printf("+-----------------------------------------------------------------------+\n");
     printf("|                                                                       |\n");
