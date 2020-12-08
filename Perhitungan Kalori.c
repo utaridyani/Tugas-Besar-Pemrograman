@@ -1,14 +1,18 @@
 #include<stdio.h>
 #include<conio.h>
+#include<windows.h>
 
-int gender, age1;       /* Variabel untuk memasukkan nilai
-                        age1   = untuk memasukkan dan menyimpan nilai penentuan usia
-                        gender = untuk memasukkan dan menyimpan nilai penentuan jenis kelamin*/
-double mass, height;    /* Variabel untuk memasukkan nilai
-                        height = untuk memasukkan nilai tinggi badan
-                        mass   = untuk memasukkan nilai berat badan*/
-double hasil;           /* Variabel untuk memasukkan nilai 
-                        hasil = total nilai aritmatika dalam perhitungan kebutuhan kalori harian*/
+int gender, age1,ask1;                        /* Variabel untuk memasukkan nilai
+                                         age1   = untuk memasukkan dan menyimpan nilai penentuan usia
+                                         gender = untuk memasukkan dan menyimpan nilai penentuan jenis kelamin*/
+double mess, height;                     /* Variabel untuk memasukkan nilai
+                                         height = untuk memasukkan nilai tinggi badan
+                                         mess   = untuk memasukkan nilai berat badan*/
+double hasil,hasil_TEE;              /* Variabel untuk memasukkan nilai
+                                         hasil_BMR = total nilai aritmatika dalam perhitungan kebutuhan kalori harian
+                                         hasil_TEE = total nilai aritmatika dalam perhitungan total energi*/
+double bmr;
+
 
 
 void koor(int x , int y);
@@ -21,6 +25,8 @@ double BMR();
 void utama();
 void tanya();
 double TEE();
+void result_TEE();
+double Final_TEE();
 
 int main(){
   Loading();
@@ -28,14 +34,14 @@ int main(){
 }
 
 void utama(){
+bersih();
 
+   printf("\t\t||=================================||\n");
+   printf("\t\t||  Program Perhitungan Kebutuhan  ||\n");
+   printf("\t\t||         Kalori Harian           ||\n");
+   printf("\t\t||=================================||\n");
 
-                        puts("||=================================||");
-                        puts("||  Program Perhitungan Kebutuhan  ||");
-                        puts("||         Kalori Harian           ||");
-                        puts("||=================================||");
-
-   printf("+-+-----------------------+-+\n");
+   printf("\n+-+-----------------------+-+\n");
    printf("| |Tentukan jenis kelamin | |\n");
    printf("+-+---------+-------------+-+\n");
    printf("|1|Laki-laki|             | |\n");
@@ -46,45 +52,48 @@ void utama(){
    printf("| |(1) untuk laki-laki    | |\n");
    printf("| |(2) untuk perempuan    | |\n");
    printf("+-+-----------------------+-+\n");
-    printf("|Jawaban anda : ");
+    printf("\nJawaban anda : ");
     scanf ("%d",&gender);
-    printf("Masukkan usia                  : ");
+    printf("\nMasukkan usia                  : ");
     scanf ("%d", &age1);
-    printf("masukkan tinggi badan dalam cm : ");
+    printf("\nmasukkan tinggi badan dalam cm : ");
     scanf ("%lf",&height);
-    printf("masukkan berat badan dalam kg  : ");
-    scanf ("%lf",&mass);
-    hasil = BMR()/1000;
-    printf("Kebutuhan kalori yang anda perlukan setiap harinya sebesar %.2lf kcals\n", hasil);
+    printf("\nmasukkan berat badan dalam kg  : ");
+    scanf ("%lf",&mess);
     tanya();
 }
 
 double BMR(){
 
     if(gender == 1){
-        return 88362 + (13397*mass) + (4799*height) - (5677*age1);
+        return 88.4 + (13.4*mess) + (4.8*height) - (5.68*age1);
     }
     else if(gender == 2){
-        return 447593 + (9247*mass) + (3.098*height) - (433*age1);
+        return 447.6 + (9.25*mess) + (3.1*height) - (4.33*age1);
     }
 }
 
 void tanya(){
 
-    printf("Tentukan level aktivitas fisik : \n");
-    printf("1.Tidak aktif\n");
-    printf("2.Cukup aktif\n");
-    printf("3.Aktif\n");
-    printf("4.Sangat aktif\n");
-    printf("Jawaban anda : ");
+    printf("\n+----------------------------------+\n");
+    printf("|Tentukan level aktivitas fisik    |\n");
+    printf("+---+-------------+----------------+\n");
+    printf("|No | Level       |  Tekan Angka   |\n");
+    printf("+---+-------------+----------------+\n");
+    printf("| 1 |Tidak aktif  |      (1)       |\n");
+    printf("| 2 |Cukup aktif  |      (2)       |\n");
+    printf("| 3 |Aktif        |      (3)       |\n");
+    printf("| 4 |Sangat aktif |      (4)       |\n");
+    printf("+---+-------------+----------------+\n");
+    printf("\nJawaban anda : ");
     scanf ("%d", &ask1);
-    hasil = TEE()/1000;
-    printf("Total energi yang diperlukan sebesar %.2lf kcals",hasil);
+    hasil_TEE = TEE();
+    printf("Total energi anda sebesar %.2lf kcals",hasil_TEE);
+    result_TEE();
 }
 
 double TEE(){
 
-    double bmr;
     bmr = BMR();
 
     if(ask1 == 1){
@@ -97,6 +106,47 @@ double TEE(){
       return bmr*1.725;
     }
 }
+
+double Final_TEE(){
+
+    hasil_TEE = TEE();
+
+    if(gender == 1){
+        if(hasil_TEE < 2500){
+            return 2500 - hasil_TEE;
+        }else if(hasil_TEE > 2500){
+            return hasil_TEE - 2500;
+        }
+    }
+     else if(gender == 2){
+        if(hasil_TEE < 2000){
+            return 2000 - hasil_TEE;
+        }else if(hasil_TEE > 2000){
+            return hasil_TEE - 2500;
+        }
+    }
+}
+void result_TEE(){
+
+    hasil = Final_TEE();
+
+     if(gender == 1){
+        if(hasil < 2500){
+            printf("\nKebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
+        }else if(hasil > 2500){
+            printf("\nKebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
+        }
+     if(gender == 2){
+        if(hasil_TEE < 2000){
+            printf("\nKebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
+        }else if(hasil_TEE > 2000){
+            printf("\nKebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
+        }
+    }
+
+    }
+}
+
 void koor(int x , int y)
 {
     HANDLE h;
@@ -125,15 +175,18 @@ void setcolor(unsigned short color)
 void Loading(){
 
     bersih();
-    koor(40,9);
-    printf("||===============================||\n");
-    koor(40,10);
-    printf("||    Perhitungan Badan Ideal    ||\n");
-    koor(40,11);
-    printf("||===============================||\n");
-    koor(40,14);
-    for(int i=1 ; i<=34 ; i++){
+    koor(37,9);
+    printf("||===========================================||\n");
+    koor(37,10);
+    printf("||    Perhitungan Kebutuhan Kalori Harian    ||\n");
+    koor(37,11);
+    printf("||===========================================||\n");
+    koor(37,14);
+    for(int i=1 ; i<=48 ; i++){
         setcolor(7);
         printf("%c",219);
-        Sleep(60); } }
+        Sleep(60);
+        }
+}
+
 
