@@ -133,7 +133,7 @@ void ask1(){
         printf("\nMasukkan usia dalam bulan       : ");
         scanf("%lf", &age1);
         printf("\nMasukkan berat badan dalam  kg  : ");
-        scanf("%lf", &mess);
+        scanf("%lf", &BBL);
         hasil = Calculate_BMI();
         printf("\nBBL anda adalah %.2lf g\n", hasil);
         Final_BMI();
@@ -209,16 +209,16 @@ double Calculate_BMI(){
             if(bulan == 12){
                 return (2*(age1+1)+8);
             }
-            else if(bulan >= 3 && bulan <= 4){
-                return (((2*(age1 + bulan))+8) + 1);
+            else if(bulan >= 3 || bulan <= 4){
+                return (((2*(age1 + 1))+8));
             }else{
-                return (2*(age1 + bulan))+8;
+                return ((2*age1)+8);
          }
        }
     }
 
     else if(qna1 == 4){
-        if(age1 >= 10 && age1 <= 18){
+        if(age1 > 10 && age1 <= 18){
             return(height - 100)-((height-100)*0.1);
         }
     }
