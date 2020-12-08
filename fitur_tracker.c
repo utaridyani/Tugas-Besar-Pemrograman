@@ -1,5 +1,12 @@
 #include <stdio.h>
-#include <math.h>
+#include <windows.h>
+
+void bersih();
+void errorHandling();
+void koor(int x , int y);
+void box(int a,int b,int c,int d);
+void box1(int a,int b,int c,int d);
+
 
 int main()
 {
@@ -7,53 +14,60 @@ int main()
 	double penurunan1, penurunan2, kenaikan1 , kenaikan2;
 	double bulanPertama, bulanKedua, bulanKetiga;
 
-    printf("\nMasukkan BMI anda selama 3 bulan dengan format maksimal 2 angka dibelakang koma\n");
-	printf("\n\tBMI bulan ke-1 : ");
+    box(1,1,100,30);
+    box1(20,5,80,7);
+    koor(42,6); printf("Masukkan BMI anda");
+    koor(10,10); printf("BMI bulan ke-1 : ");
 	scanf("%lf", &bulanPertama);
-	printf("\n\tBMI bulan ke-2 : ");
+	koor(10,13); printf("BMI bulan ke-2 : ");
 	scanf("%lf", &bulanKedua);
-	printf("\n\tBMI bulan ke-3 : ");
+	koor(10,16); printf("BMI bulan ke-3 : ");
 	scanf("%lf", &bulanKetiga);
+	bersih();
 
-    printf("\n===================================================================");
-    printf("\n\t\t\tREKAPITULASI BMI");
-    printf("\n===================================================================");
-	printf("\nBMI bulan pertama adalah %.2f\n", bulanPertama);
-	printf("\nBMI bulan kedua adalah %.2f\n", bulanKedua);
-	printf("\nBMI bulan ketiga adalah %.2f\n\n\n", bulanKetiga);
+    box(1,1,100,30);
+    //box rekapitulasi
+    box1(2,2,99,15);
+    box1(38,3,60,5);
+    //box tracking
+    box1(2,16,99,29);
+    box1(38,17,60,19);
 
-    printf("\n--------------------------");
-    printf("\n        Tracking");
-    printf("\n--------------------------");
+    koor(41,4); printf("REKAPITULASI BMI");
+	koor(5,7); printf("BMI bulan pertama adalah %.2f", bulanPertama);
+	koor(5,10); printf("BMI bulan kedua adalah %.2f", bulanKedua);
+	koor(5,13); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
+
+    koor(45,18); printf("TRACKING");
 
 	if(bulanPertama>bulanKedua)
 	{
 		penurunan1=bulanPertama-bulanKedua;
-		printf("\nPada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
+		koor(5,22); printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
 	}
 	else if(bulanKedua>bulanPertama)
 	{
 		kenaikan1=bulanKedua-bulanPertama;
-		printf("\n\nPada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
+		koor(5,22); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
 	}
 	else if(bulanPertama=bulanKedua)
 	{
-		puts("\nBMI anda stabil pada bulan kedua");
+		koor(5,22); printf("BMI anda stabil pada bulan kedua");
 	}
 
 	if(bulanKedua>bulanKetiga)
 	{
 		penurunan2=bulanKedua - bulanKetiga;
-		printf("\n\nPada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
+		koor(5, 25); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
 	}
 	else if(bulanKetiga>bulanKedua)
 	{
 		kenaikan2=bulanKetiga - bulanKedua;
-		printf("\n\nPada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
+		koor(5, 25); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
 	}
 	else if(bulanKetiga=bulanKedua)
 	{
-		puts("\nBMI anda stabil pada bulan ketiga");
+		koor(5, 25); printf("BMI anda stabil pada bulan ketiga");
 	}
 }
 
@@ -61,4 +75,60 @@ int main()
 void errorHandling()
 {
 	printf("Input yang anda masukkan salah!");
+}
+
+//Fungsi untuk membersihkan layar tanpa menutup program
+void bersih()
+{
+    system("cls");
+}
+
+//Fungsi Untuk Menentukan letak kursor
+void koor(int x , int y)
+{
+    HANDLE h;
+    COORD c;
+    c.X = x;
+    c.Y = y;
+    h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(h,c);
+}
+
+//Fungsi Pembetukan Box
+void box(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("\xcd");
+		koor(i,d);printf("\xcd");
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("\xba");
+		koor(c,j);printf("\xba");
+	}
+		koor(a,b);printf("\xc9");
+		koor(c,b);printf("\xbb");
+		koor(a,d);printf("\xc8");
+		koor(c,d);printf("\xbc");
+}
+
+void box1(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("%c",196);
+		koor(i,d);printf("%c",196);
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("%c",179);
+		koor(c,j);printf("%c",179);
+	}
+		koor(a,b);printf("%c",218);
+		koor(c,b);printf("%c",191);
+		koor(a,d);printf("%c",192);
+		koor(c,d);printf("%c",217);
 }
