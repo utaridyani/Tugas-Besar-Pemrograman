@@ -63,7 +63,7 @@ bersih();
         }
     else if(bmi == 2){
         printf("+-----------------------------------------------------------------------+\n");
-        printf("|Anda kekurangan gizi                                                                       |\n");
+        printf("|Anda kekurangan gizi                                                   |\n");
         printf("+-----------------------------------------------------------------------+\n");
         printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
         printf("|                                                                       |\n");
