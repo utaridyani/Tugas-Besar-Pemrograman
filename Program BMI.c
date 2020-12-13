@@ -704,7 +704,7 @@ void Final_BMI(){
      else if((gender == 2 && age1 == 9.0) && (hasil < 5800)){
         printf("\nKategori gizi buruk");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 5800 && hasil < 6500)){
-        printf("n\Kategori gizi kurang");
+        printf("\nKategori gizi kurang");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 6500 && hasil < 10500)){
         printf("\nKategori gizi normal");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 10500)){
