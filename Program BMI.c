@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<windows.h>
-
+#include<time.h>
+#include<dos.h>
 /* Program Perhitungan Berat Badan Ideal oleh*/
 
 /* Deklarasi variabel global pada program perhitungan berat badan*/
@@ -30,6 +31,13 @@ double Calculate_BMI(); /* Fungsi yang digunakan untuk melakukan proses aritmati
 double saran();         /* Fungsi yang digunakan untuk melakukan proses aritmatika dan penentuan seberapa
                            besar pengurangan atau penambahan dari berat badan yang telah berhasil diinputkan pada fungsi ask1()
                            dan juga setelah melalui proses aritmatika pada fungsi Calculate_BMI()*/
+int tanggal;
+int bulan1;
+int tahun;
+int Jam;
+int Menit;
+int Detik;
+
 void up_or_down();      /* Fungsi yang digunakan untuk memasukkan dan menyimpan apakah user mengalami
                            kekurangan, kelebihan atau kondisi normal setelah fungsi ask1() berhasil tercetak dilayar*/
 void Final_BMI();       /* Fungsi yang digunakan dalam memeriksa hasil aritmatika pada fungsi Calculate_BMI(),
@@ -43,7 +51,31 @@ void bersih();
 void delay(int sec);
 void setcolor(unsigned short color);
 void Loading();
+void Tanggal_Waktu();
 
+
+void Tanggal_Waktu(){
+    time_t current;
+    time(&current);
+
+    printf("%s", ctime(&current));
+
+    struct tm*local = localtime(&current);
+
+    tanggal = local->tm_mday;
+    bulan1  = local->tm_mon + 1;
+    tahun   = local->tm_year + 1900;
+    Jam     = local->tm_hour;
+    Menit   = local->tm_min;
+    Detik   = local->tm_sec;
+
+    if (Jam < 12)
+        printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    else
+        printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+
+    printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+}
 
 int main(){
 
@@ -54,8 +86,9 @@ int main(){
 }
 
 void Main_Menu_BMI(){
-
+  
    bersih();
+   Tanggal_Waktu();
    printf("+------------------------------------------------+\n");
    printf("|     ||=================================||      |\n");
    printf("|     || Program Perhitungan Badan Ideal ||      |\n");
@@ -768,6 +801,7 @@ void Final_BMI(){
 
 void result_BMI(){
 
+
     hasil  = Calculate_BMI();
     double hasil_saran = saran();
 
@@ -778,14 +812,16 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
-    fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf g                           |\n",hasil);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf g                            |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya peningkatan berat  |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf g            |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf g             |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -803,14 +839,16 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf g                           |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf g                            |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya penurunan berat    |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf g            |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf g             |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -828,10 +866,12 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf g                           |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf g                            |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Berat badan dinyatakan normal    |\n");
@@ -856,14 +896,16 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg                          |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg                             |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya peningkatan berat  |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf kg           |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf kg              |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -881,14 +923,16 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg                          |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg                             |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya penurunan berat    |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf kg           |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf kg              |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -909,7 +953,9 @@ void result_BMI(){
     fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg                          |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg                             |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Berat badan dinyatakan normal    |\n");
@@ -933,14 +979,16 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg/m^2                      |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg/m^2                         |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya peningkatan berat  |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf kg/m^2       |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf kg/m^2          |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -961,11 +1009,13 @@ void result_BMI(){
     fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg/m^2                      |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg/m^2                         |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Diperlukannya penurunan berat    |\n");
-    fprintf(fpoin,"|             | badan sekitar %.2lf kg/m^2       |\n",hasil_saran);
+    fprintf(fpoin,"|             | badan sekitar %.lf kg/m^2          |\n",hasil_saran);
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"|             |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
@@ -983,10 +1033,12 @@ void result_BMI(){
     fprintf(fpoin,"+------------------------------------------------+\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"|     || Program Perhitungan Badan Ideal ||      |\n");
-    fprintf(fpoin,"|     ||          Beta Version           ||      |\n");
+    fprintf(fpoin,"|     ||           Version 1.0           ||      |\n");
     fprintf(fpoin,"|     ||=================================||      |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
-    fprintf(fpoin,"| Hasil       |%.2lf kg/m^2                      |\n",hasil);
+    fprintf(fpoin,"|\t\t%02d:%02d:%02d    %02d/%02d/%d           |\n",Jam,Menit,Detik,tanggal,bulan1,tahun);
+    fprintf(fpoin,"+------------------------------------------------+\n");
+    fprintf(fpoin,"| Hasil       |%.lf kg/m^2                         |\n",hasil);
     fprintf(fpoin,"| Perhitungan |                                  |\n");
     fprintf(fpoin,"+-------------+----------------------------------+\n");
     fprintf(fpoin,"| Keterangan  | Berat badan dinyatakan normal    |\n");
@@ -1004,6 +1056,7 @@ void result_BMI(){
     }
     }
 }
+
 
 void koor(int x , int y)
 {
