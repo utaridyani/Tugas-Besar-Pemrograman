@@ -1,14 +1,23 @@
 #include<stdio.h>
 #include<conio.h>
 #include<windows.h>
+#include<time.h>
+#include<dos.h>
 
 int bmi;
+int tanggal;
+int bulan1;
+int tahun;
+int Jam;
+int Menit;
+int Detik;
 
 void koor(int x , int y);
 void bersih();
 void delay(int sec);
 void setcolor(unsigned short color);
 void Loading();
+void Tanggal_Waktu();
 
 int main(){
   Loading();
@@ -16,9 +25,32 @@ int main(){
   Rekomendasi_makanan();
 }
 
+void Tanggal_Waktu(){
+    time_t current;
+    time(&current);
+
+    printf("%s", ctime(&current));
+
+    struct tm*local = localtime(&current);
+
+    tanggal = local->tm_mday;
+    bulan1  = local->tm_mon + 1;
+    tahun   = local->tm_year + 1900;
+    Jam     = local->tm_hour;
+    Menit   = local->tm_min;
+    Detik   = local->tm_sec;
+
+    if (Jam < 12)
+        printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    else
+        printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+
+    printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+}
 void utama(){
 bersih();
-
+Tanggal_Waktu();
+  
     printf("\t\t||=================================||\n");
     printf("\t\t||         Rekomendasi Menu        ||\n");
     printf("\t\t||          Makanan Sehat          ||\n");
