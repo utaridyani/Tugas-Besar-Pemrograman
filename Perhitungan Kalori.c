@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
 #include<windows.h>
+#include<time.h>
+#include<dos.h>
 
 int gender, age1,ask1;                        /* Variabel untuk memasukkan nilai
                                          age1   = untuk memasukkan dan menyimpan nilai penentuan usia
@@ -13,7 +15,12 @@ double hasil,hasil_TEE;              /* Variabel untuk memasukkan nilai
                                          hasil_TEE = total nilai aritmatika dalam perhitungan total energi*/
 double bmr;
 
-
+int tanggal;
+int bulan1;
+int tahun;
+int Jam;
+int Menit;
+int Detik;
 
 void koor(int x , int y);
 void bersih();
@@ -27,6 +34,7 @@ void tanya();
 double TEE();
 void result_TEE();
 double Final_TEE();
+void Tanggal_Waktu();
 
 int main(){
   Loading();
@@ -35,7 +43,7 @@ int main(){
 
 void utama(){
 bersih();
-
+Tanggal_Waktu();
    printf("\t\t||=================================||\n");
    printf("\t\t||  Program Perhitungan Kebutuhan  ||\n");
    printf("\t\t||         Kalori Harian           ||\n");
@@ -189,4 +197,25 @@ void Loading(){
         }
 }
 
+void Tanggal_Waktu(){
+    time_t current;
+    time(&current);
 
+    printf("%s", ctime(&current));
+
+    struct tm*local = localtime(&current);
+
+    tanggal = local->tm_mday;
+    bulan1  = local->tm_mon + 1;
+    tahun   = local->tm_year + 1900;
+    Jam     = local->tm_hour;
+    Menit   = local->tm_min;
+    Detik   = local->tm_sec;
+
+    if (Jam < 12)
+        printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    else
+        printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+
+    printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+}
