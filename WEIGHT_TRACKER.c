@@ -25,6 +25,8 @@ char username[100];
 char password[10];
 int compare1;
 int compare2;
+int ulang=0;
+int ch;
 FILE * fp;
 
 //Fungsi main
