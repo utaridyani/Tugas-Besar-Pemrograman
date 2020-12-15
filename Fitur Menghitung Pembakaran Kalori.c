@@ -12,110 +12,120 @@ int Menit;
 int Detik;
 
 void koor(int x , int y);
+void box(int a,int b,int c,int d);
+void box1(int a, int b, int c, int d);
 void bersih();
 void delay(int sec);
 void setcolor(unsigned short color);
 void Loading();
-void utama();
+void perhitungankalorisaatolahraga();
 
 void main(){
     Loading();
-    utama();
+    perhitungankalorisaatolahraga();
 }
 
 
-void utama()
+void perhitungankalorisaatolahraga()
 {
 bersih();
 Tanggal_Waktu();
-    printf("============================================================\n");
-    printf("                    Menghitung Pembakaran Kalori            \n");
-    printf("                         Saat Berolahraga                   \n");
-    printf("============================================================\n");
-	printf("Pilih aktivitas yang sudah anda lakukan   : \n");
-	printf("1.Bersepeda     || Kode = s\n");
-	printf("2.Jogging       || Kode = j\n");
-	printf("3.Basket        || Kode = b\n");
-	printf("4.Yoga          || Kode = y\n");
-	printf("5.Sepak Bola    || Kode = S\n");
-	printf("6.Voli          || Kode = v\n");
-	printf("7.Badminton     || Kode = B\n");
-	printf("\n");
+setcolor(10);
+box(35,7,117,35);
+    koor(47,10);printf("============================================================\n");
+    koor(47,11);printf("                 Menghitung Pembakaran Kalori            \n");
+    koor(47,12);printf("                       Saat Berolahraga                   \n");
+    koor(47,13);printf("============================================================\n");
+	koor(47,14);printf("Pilih aktivitas yang sudah anda lakukan   : \n");
+	koor(47,15);printf("1.Bersepeda     || Kode = s\n");
+	koor(47,16);printf("2.Jogging       || Kode = j\n");
+	koor(47,17);printf("3.Basket        || Kode = b\n");
+	koor(47,18);printf("4.Yoga          || Kode = y\n");
+	koor(47,19);printf("5.Sepak Bola    || Kode = S\n");
+	koor(47,20);printf("6.Voli          || Kode = v\n");
+	koor(47,21);printf("7.Badminton     || Kode = B\n");
+	koor(47,22);printf("\n");
 	char jenisaktivitas;
-	printf("Input aktivitas yang anda lakukan         : ");
+	koor(47,24);printf("Input aktivitas yang anda lakukan         : ");
 	scanf("%c", &jenisaktivitas);
-	printf("\n============================================================\n");
             if(jenisaktivitas == 's'){
                 float menit, kalori, pembakarankalori;
                 kalori = 8.66;
-                    printf("Berapa menit anda bersepeda? ");
+                    koor(47,26);printf("Berapa menit anda bersepeda? ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("\n");
-                    printf("Anda telah membakar kalori dengan bersepeda sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan bersepeda sebanyak %.2f\n",pembakarankalori);
 
 	}
             if(jenisaktivitas == 'j'){
                 float km, kalori, pembakarankalori;
                 kalori = 60.0;
-                    printf("Berapa km anda melakukan jogging? : ");
+                    koor(47,26);printf("Berapa km anda melakukan jogging? : ");
                     scanf("%f", &km);
                     pembakarankalori = km * kalori;
-                    printf("Anda telah membakar kalori dengan jogging sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan jogging sebanyak %.2f\n",pembakarankalori);
 	}
              if(jenisaktivitas == 'b'){
                 float menit, kalori, pembakarankalori;
                 kalori = 9.83;
-                    printf("Berapa menit anda bermain basket? : ");
+                    koor(47,26);printf("Berapa menit anda bermain basket? : ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("Anda telah membakar kalori dengan bermain basket sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan bermain basket sebanyak %.2f\n",pembakarankalori);
 	}
             if(jenisaktivitas == 'y'){
                 float menit, kalori, pembakarankalori;
                 kalori = 5.0;
-                    printf("Berapa menit anda melakukan yoga? : ");
+                    koor(47,26);printf("Berapa menit anda melakukan yoga? : ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("Anda telah membakar kalori dengan melakukan yoga sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan melakukan yoga sebanyak %.2f\n",pembakarankalori);
 	}
             if(jenisaktivitas == 'S'){
                 float menit, kalori, pembakarankalori;
                 kalori = 10.2;
-                    printf("Berapa menit anda bermain sepak bola? : ");
+                    koor(47,26);printf("Berapa menit anda bermain sepak bola? : ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("Anda telah membakar kalori dengan bermain sepak bola sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan bermain sepak bola sebanyak %.2f\n",pembakarankalori);
 	}
             if(jenisaktivitas == 'v'){
                 float menit, kalori, pembakarankalori;
                 kalori = 4.9;
-                    printf("Berapa menit anda bermain voli? : ");
+                    koor(47,26);printf("Berapa menit anda bermain voli? : ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("Anda telah membakar kalori dengan bermain voli sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan bermain voli sebanyak %.2f\n",pembakarankalori);
 	}
             if(jenisaktivitas == 'B'){
                 float menit, kalori, pembakarankalori;
                 kalori = 4.53;
-                    printf("Berapa menit anda bermain badminton? : ");
+                    koor(47,26);printf("Berapa menit anda bermain badminton? : ");
                     scanf("%f", &menit);
                     pembakarankalori = menit * kalori;
-                    printf("Anda telah membakar kalori dengan bermain badminton sebanyak %.2f\n",pembakarankalori);
+                    koor(47,27);printf("\n");
+                    koor(47,28);printf("Anda telah membakar kalori dengan bermain badminton sebanyak %.2f\n",pembakarankalori);
 	}
-            else {
-                    printf("Input yang anda masukkan salah");
+            else{
+                    koor(47,26);printf("Input yang anda masukkan salah");
 	}
 
-
-	printf("\n============================================================\n");
-    printf("          Terima kasih telah menggunakan fitur ini\n");
-    printf("============================================================\n");
+    koor(47,31);printf(" \n");
+	koor(47,32);printf("============================================================\n");
+    koor(47,33);printf("          Terima kasih telah menggunakan fitur ini          \n");
+    koor(47,34);printf("============================================================\n");
 
   	return 0;
 }
 
 void Tanggal_Waktu(){
+    setcolor(5);
     time_t current;
     time(&current);
 
@@ -179,3 +189,41 @@ void Loading(){
         setcolor(7);
         printf("%c",219);
         Sleep(150); } }
+
+void box(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("\xcd");
+		koor(i,d);printf("\xcd");
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("\xba");
+		koor(c,j);printf("\xba");
+	}
+		koor(a,b);printf("\xc9");
+		koor(c,b);printf("\xbb");
+		koor(a,d);printf("\xc8");
+		koor(c,d);printf("\xbc");
+}
+
+void box1(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("%c",16);
+		koor(i,d);printf("%c",16);
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("%c",63);
+		koor(c,j);printf("%c",63);
+	}
+		koor(a,b);printf("%c",218);
+		koor(c,b);printf("%c",191);
+		koor(a,d);printf("%c",192);
+		koor(c,d);printf("%c",217);
+}
