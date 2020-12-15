@@ -13,6 +13,7 @@ void namaProgram();
 void pemilihanUser();
 void signup ();
 void login ();
+void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan);
 
 struct data
 {
@@ -27,65 +28,14 @@ int compare1;
 int compare2;
 int ulang=0;
 int ch;
+int panjangX,panjangY,button,kode;
+int pilihan;
 FILE * fp;
 
 //Fungsi main
 int main()
 {
-    int panjangX,panjangY,button,kode;
-
-    setcolor(10);
-    box(30,7,117,35);
-    namaProgram();
-
-    panjangX = 37;
-    panjangY = 21;
-
-do{
-    pemilihanUser();
-
-    koor(panjangX,panjangY);
-    printf("-->");
-    button = getch();
-
-    //Opsi untuk memindahkan user
-    if(button == 77 && panjangX == 37)
-    {
-        panjangX = 94;
-    }
-    else if(button == 75 && panjangX == 94)
-    {
-        panjangX = 37;
-    }
-}while(button != 13);
-
-if(panjangY == 21 && panjangX == 37)
-{
-    bersih();
-    setcolor(10);
-    box(30,7,117,35);
-    box1(40,12,107,30);
-    setcolor(7);
-    koor(50,21); printf("MASUKAN KODE REGISTRASI : ");
-    scanf("%d", &kode); fflush(stdin);
-    if (kode==3748)
-    {
-        //menu login
-    }
-    else
-    {
-        koor(50,23);
-        printf("KODE LOGIN SALAH !");
-    }
-}
-else if(panjangY == 21 && panjangX == 94)
-{
-    bersih();
-   //Fitur-Fitur untuk user reguler
-}
-
-getch();
-return 0;
+    menuAwal(panjangX, panjangY, button, kode, pilihan);
 }
 
 
@@ -135,7 +85,7 @@ void namaProgram()
     for(int i=1 ; i<=34 ; i++){
         setcolor(10);
         printf("%c",219);
-        Sleep(10); }
+        Sleep(100); }
 }
 
 //Fungsi Pemilihan Jenis User
@@ -153,7 +103,7 @@ void pemilihanUser()
     koor(99,21);printf("Reguler");
 }
 
-//Fungsi Pembetukan Box
+//Fungsi Pembetukan Box Bergaris 2
 void box(int a,int b,int c,int d)
 {
 	int i,j;
@@ -173,6 +123,7 @@ void box(int a,int b,int c,int d)
 		koor(c,d);printf("\xbc");
 }
 
+//Fungsi Pembentukan Box bergaris 1
 void box1(int a,int b,int c,int d)
 {
 	int i,j;
@@ -192,9 +143,10 @@ void box1(int a,int b,int c,int d)
 		koor(c,d);printf("%c",217);
 }
 
+//Fungsi untuk signup bagi user baru
 void signup ()
 {
-    fp=fopen("data.txt", "a");
+    fp=fopen("data.txt", "w");
 
     puts("Masukkan nama lengkap : ");
     gets(a.nama);
@@ -207,8 +159,10 @@ void signup ()
 
     fwrite(&a, sizeof(a), 1, fp);
     fclose(fp);
+    login();
 }
 
+//Fungsi Login
 void login ()
 {
     for(int i=0; i<3; i++)
@@ -260,3 +214,99 @@ void login ()
         printf("\nLogin Gagal!");
     }
 }
+
+//Fungsi Menu Awal
+void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan)
+{
+    setcolor(10);
+    box(30,7,117,35);
+    namaProgram();
+
+    panjangX = 37;
+    panjangY = 21;
+
+do{
+    menuAwal:
+    pemilihanUser();
+
+    koor(panjangX,panjangY);
+    printf("-->");
+    button = getch();
+
+    //Opsi untuk memindahkan user
+    if(button == 77 && panjangX == 37)
+    {
+        panjangX = 94;
+    }
+    else if(button == 75 && panjangX == 94)
+    {
+        panjangX = 37;
+    }
+}while(button != 13);
+
+if(panjangY == 21 && panjangX == 37)
+{
+    inputKodeRegistrasi:
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
+    setcolor(7);
+    koor(50,21); printf("MASUKAN KODE REGISTRASI : ");
+    scanf("%d", &kode); fflush(stdin);
+    if (kode==3748)
+    {
+        bersih();
+        box(30,7,117,35);
+        box1(40,12,107,30);
+        koor(45, 15); printf("1.Sign Up");
+        koor(45, 16); printf("2.Sign In");
+        koor(45, 18); printf("Masukkan Pilihan Anda : ");
+        scanf("%d", &pilihan); fflush(stdin);
+
+        if(pilihan==1)
+        {
+            signup();
+        }
+        else if(pilihan==2)
+        {
+            login();
+        }
+    }
+    else
+    {
+        koor(50,23); printf("KODE REGISTRASI SALAH !");
+        koor(45,27); printf("1. Menu Awal");
+        koor(91,27); printf("2. Input Ulang");
+        koor(60,29); printf("Masukkan pilihan Anda : ");
+        scanf("%d", &pilihan); fflush(stdin);
+
+        if(pilihan==1)
+        {
+            goto menuAwal;
+        }
+        else if(pilihan==2)
+        {
+            goto inputKodeRegistrasi;
+        }
+        else
+        {
+            bersih();
+            setcolor(10);
+            box(30,7,117,35);
+            box1(40,12,107,30);
+            setcolor(7);
+            koor(65,21); printf("Input Anda salah!");
+        }
+    }
+}
+else if(panjangY == 21 && panjangX == 94)
+{
+    bersih();
+   //Fitur-Fitur untuk user reguler
+}
+
+getch();
+return 0;
+}
+
