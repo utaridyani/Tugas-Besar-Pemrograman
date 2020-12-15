@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <windows.h>
 
 //deklarasi fungsi
@@ -10,13 +9,104 @@ void box1(int a, int b, int c, int d);
 void bersih();
 void delay(int sec);
 void setcolor(unsigned short color);
+void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, int password, int panjangX,int panjangY,int button);
+
+int hari, dokter, pengguna, userID, password;
+int panjangX,panjangY,button;
 
 //Main Function
 int main(){
-    int hari, dokter, pengguna, userID, password;
-    int panjangX,panjangY,button;
+ mainTanyaDokter (hari, dokter, pengguna, userID, password, panjangX, panjangY, button);
+}
 
-    panjangX = 15;
+//Fungsi Tanya Dokter
+int tanyaDokter (int hari, int dokter){
+    bersih();
+	box(10,2,78,18);
+	box1(35,3,50,7);
+	koor(37,5); printf("TANYA DOKTER");
+	koor(12,10); printf("Pilih hari untuk sesi tanya jawab : ");
+	koor (18,12); printf("Senin");
+	koor (18,13); printf("Selasa");
+	koor (18,14); printf("Rabu");
+	koor (18,15); printf("Kamis");
+	koor (18,16); printf("Jumat");
+
+	printf("\n\n\n");
+}
+
+//Fungsi Untuk Menentukan letak kursor
+void koor(int x , int y)
+{
+    HANDLE h;
+    COORD c;
+    c.X = x;
+    c.Y = y;
+    h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(h,c);
+}
+
+//Fungsi untuk membersihkan layar tanpa menutup program
+void bersih()
+{
+    system("cls");
+}
+
+//Fungsi Blocking yang menyebabkan program berhenti sejenak dan tidak melakukan proses
+void delay(int sec)
+{
+    Sleep(sec);
+}
+
+//Fungsi Untuk Memberi Warna
+void setcolor(unsigned short color)
+{
+    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hCon,color);
+}
+
+//Fungsi Pembetukan Box
+void box(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("\xcd");
+		koor(i,d);printf("\xcd");
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("\xba");
+		koor(c,j);printf("\xba");
+	}
+		koor(a,b);printf("\xc9");
+		koor(c,b);printf("\xbb");
+		koor(a,d);printf("\xc8");
+		koor(c,d);printf("\xbc");
+}
+
+void box1(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("%c",196);
+		koor(i,d);printf("%c",196);
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("%c",179);
+		koor(c,j);printf("%c",179);
+	}
+		koor(a,b);printf("%c",218);
+		koor(c,b);printf("%c",191);
+		koor(a,d);printf("%c",192);
+		koor(c,d);printf("%c",217);
+}
+
+void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, int password, int panjangX,int panjangY,int button)
+{
+ panjangX = 15;
     panjangY = 12;
 
     do{
@@ -237,89 +327,4 @@ else if(panjangX == 15 && panjangY == 16)
 }
 getch();
 return(0);
-    }
-
-//Fungsi Tanya Dokter
-int tanyaDokter (int hari, int dokter){
-    bersih();
-	box(10,2,78,18);
-	box1(35,3,50,7);
-	koor(37,5); printf("TANYA DOKTER");
-	koor(12,10); printf("Pilih hari untuk sesi tanya jawab : ");
-	koor (18,12); printf("Senin");
-	koor (18,13); printf("Selasa");
-	koor (18,14); printf("Rabu");
-	koor (18,15); printf("Kamis");
-	koor (18,16); printf("Jumat");
-
-	printf("\n\n\n");
-}
-
-//Fungsi Untuk Menentukan letak kursor
-void koor(int x , int y)
-{
-    HANDLE h;
-    COORD c;
-    c.X = x;
-    c.Y = y;
-    h = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(h,c);
-}
-
-//Fungsi untuk membersihkan layar tanpa menutup program
-void bersih()
-{
-    system("cls");
-}
-
-//Fungsi Blocking yang menyebabkan program berhenti sejenak dan tidak melakukan proses
-void delay(int sec)
-{
-    Sleep(sec);
-}
-
-//Fungsi Untuk Memberi Warna
-void setcolor(unsigned short color)
-{
-    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hCon,color);
-}
-
-//Fungsi Pembetukan Box
-void box(int a,int b,int c,int d)
-{
-	int i,j;
-	for(i=a;i<c;i++)
-	{
-		koor(i,b);printf("\xcd");
-		koor(i,d);printf("\xcd");
-	}
-	for(j=b;j<d;j++)
-	{
-		koor(a,j);printf("\xba");
-		koor(c,j);printf("\xba");
-	}
-		koor(a,b);printf("\xc9");
-		koor(c,b);printf("\xbb");
-		koor(a,d);printf("\xc8");
-		koor(c,d);printf("\xbc");
-}
-
-void box1(int a,int b,int c,int d)
-{
-	int i,j;
-	for(i=a;i<c;i++)
-	{
-		koor(i,b);printf("%c",196);
-		koor(i,d);printf("%c",196);
-	}
-	for(j=b;j<d;j++)
-	{
-		koor(a,j);printf("%c",179);
-		koor(c,j);printf("%c",179);
-	}
-		koor(a,b);printf("%c",218);
-		koor(c,b);printf("%c",191);
-		koor(a,d);printf("%c",192);
-		koor(c,d);printf("%c",217);
 }
