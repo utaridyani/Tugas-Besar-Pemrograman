@@ -209,12 +209,20 @@ void signup ()
 
 void login ()
 {
+    for(int i=0; i<3; i++)
+    {
     fp=fopen("data.txt", "r");
 
     printf("\nMasukkan username : ");
     gets(username);
     printf("\nMasukkan password : ");
-    gets(password);
+    for(int i=0; i<8; i++)
+    {
+        ch=getch();
+        password[i]=ch;
+        ch='*';;
+        printf("%c", ch);
+    }
 
     fread(&a, sizeof(a), 1, fp);
 
@@ -224,18 +232,29 @@ void login ()
         if(compare1==0 && compare2!=0)
         {
             printf("Password anda salah!");
+            ulang=ulang+1;
         }
         else if(compare1!=0 && compare2==0)
         {
             printf("Username anda salah!");
+            ulang=ulang+1;
         }
         else if(compare1!=0 && compare2!=0)
         {
             printf("data anda salah!");
+            ulang=ulang+1;
         }
         else if(compare1==0 && compare2==0)
         {
-            printf("LOGIN SUCCES!");
+            break;
         }
-    fclose(fp);
+    }
+    if(ulang<3)
+    {
+        printf("\nWelcome %s!", username);
+    }
+    else
+    {
+        printf("\nLogin Gagal!");
+    }
 }
