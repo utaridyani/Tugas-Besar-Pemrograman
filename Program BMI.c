@@ -3,6 +3,9 @@
 #include<windows.h>
 #include<time.h>
 #include<dos.h>
+
+
+
 /* Program Perhitungan Berat Badan Ideal oleh*/
 
 /* Deklarasi variabel global pada program perhitungan berat badan*/
@@ -20,6 +23,12 @@ int qna1,qna2,gender;/* Variabel untuk memasukkan nilai
                         qna1   = untuk memasukkan dan menyimpan nilai golongan pada fungsi Main_Menu_BMI()
                         qna2   = untuk memasukkan dan menyimpan nilai penentuan pada pencetakan file pada fungsi up_or_down()
                         gender = untuk memasukkan dan menyimpan nilai penentuan jenis kelamin pada fungsi ask1()*/
+int tanggal;
+int bulan1;
+int tahun;
+int Jam;
+int Menit;
+int Detik;
 
 double bulan;        /* Variabel untuk memasukkan nilai
                         bulan  = untuk memasukkan dan menyimpan nilai bulan pada fungsi ask1()*/
@@ -31,12 +40,6 @@ double Calculate_BMI(); /* Fungsi yang digunakan untuk melakukan proses aritmati
 double saran();         /* Fungsi yang digunakan untuk melakukan proses aritmatika dan penentuan seberapa
                            besar pengurangan atau penambahan dari berat badan yang telah berhasil diinputkan pada fungsi ask1()
                            dan juga setelah melalui proses aritmatika pada fungsi Calculate_BMI()*/
-int tanggal;
-int bulan1;
-int tahun;
-int Jam;
-int Menit;
-int Detik;
 
 void up_or_down();      /* Fungsi yang digunakan untuk memasukkan dan menyimpan apakah user mengalami
                            kekurangan, kelebihan atau kondisi normal setelah fungsi ask1() berhasil tercetak dilayar*/
@@ -46,19 +49,21 @@ void result_BMI();      /* Fungsi yang digunakan untuk mencetak file berupa .txt
 
 /* Fungsi yang di gunakan dalam pembuatan animasi
 preloader (proses loading) pada program ini oleh Utari*/
-void koor(int x , int y);
+void koor(double x , double y);
 void bersih();
 void delay(int sec);
 void setcolor(unsigned short color);
 void Loading();
 void Tanggal_Waktu();
+void box(int a,int b,int c,int d);
+void box1(int a,int b,int c,int d);
 
 
 void Tanggal_Waktu(){
     time_t current;
     time(&current);
 
-    printf("%s", ctime(&current));
+    koor(15,10);printf("%s", ctime(&current));
 
     struct tm*local = localtime(&current);
 
@@ -69,11 +74,15 @@ void Tanggal_Waktu(){
     Menit   = local->tm_min;
     Detik   = local->tm_sec;
 
-    if (Jam < 12)
+    if (Jam < 12){
+        koor(15,11);
         printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
-    else
+    }
+    else{
+        koor(15,11);
         printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
-
+    }
+    koor(15,12);
     printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
 }
 
@@ -86,137 +95,124 @@ int main(){
 }
 
 void Main_Menu_BMI(){
-  
+
    bersih();
+   setcolor(3);
+   box(5,7,116,30);
    Tanggal_Waktu();
-   printf("+------------------------------------------------+\n");
-   printf("|     ||=================================||      |\n");
-   printf("|     || Program Perhitungan Badan Ideal ||      |\n");
-   printf("|     ||          DEMO Version           ||      |\n");
-   printf("|     ||=================================||      |\n");
-   printf("+--------------------------------+---------------+\n");
-   printf("|                                |               |\n");
-   printf("|        Selamat datang          |               |\n");
-   printf("|                                |               |\n");
-   printf("|  Program ini dapat  membantu   |               |\n");
-   printf("|  anda dalam menentukan tubuh   |               |\n");
-   printf("|  yang ideal pada bayi,balita   |               |\n");
-   printf("|  ,remaja,hingga dewasa.        |               |\n");
-   printf("|                                |               |\n");
-   printf("+--------------------------------+               |\n");
-   printf("|   Tentukan opsi di bawah ini   |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| No|  Kategori |   Rentan Usia  |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| 1 |   Bayi    |   0-6   bulan  |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| 2 |   Bayi    |   7-12  bulan  |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| 3 | Anak-anak |   1-10  tahun  |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| 4 |  Remaja   |   10-18 tahun  |               |\n");
-   printf("+---+-----------+----------------+               |\n");
-   printf("| 5 |  Dewasa   |   19-60 tahun  |               |\n");
-   printf("+---+-----------+----------------+---------------+\n");
-   printf("\nJawaban anda : ");
+   box1(45,16,80,22);
+   koor(48,19);printf("Program Perhitungan Badan Ideal\n");
+   koor(56,24);printf("Selamat datang\n");
+   koor(50,25);printf("Program ini dapat  membantu\n");
+   koor(50,26);printf("anda dalam menentukan tubuh\n");
+   koor(50,27);printf("yang ideal pada bayi,balita\n");
+   koor(50,28);printf(",remaja,hingga dewasa.\n");
+   box(5,31,116,35);
+   koor(50,33);printf("Tentukan opsi di bawah ini\n");
+   box(5,36,116,55);
+   koor(20,40);printf("No\n");
+   koor(45,40);printf("Kategori");
+   koor(70,40);printf("Rentan Usia");
+   koor(100,40);printf("Kode");
+   koor(20,42);printf("1");koor(45,42);printf("Bayi");koor(70,42);printf("0-6   bulan");koor(100,42);printf("1");
+   koor(20,44);printf("2");koor(45,44);printf("Bayi");koor(70,44);printf("7-12  bulan");koor(100,44);printf("2");
+   koor(20,46);printf("3");koor(45,46);printf("Anak-anak");koor(70,46);printf("1-10  tahun");koor(100,46);printf("3");
+   koor(20,48);printf("4");koor(45,48);printf("Remaja");koor(70,48);printf("11-18 tahun");koor(100,48);printf("4");
+   koor(20,50);printf("5");koor(45,50);printf("Dewasa");koor(70,50);printf("19-60 tahun");koor(100,50);printf("5");
+   box(5,56,116,60);
+   koor(15,58);printf("Masukkan Kode : ");
    scanf("%d", &qna1);
    ask1();
-
 }
 void ask1(){
 
-
+   bersih();
+   Loading();
+   bersih();
    switch(qna1){
         case 1:
-        printf("+-+-----------------------+-+\n");
-        printf("| |Tentukan jenis kelamin | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("|1|Laki-laki|             | |\n");
-        printf("+-+---------+             | |\n");
-        printf("|2|Perempuan|             | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("| |Tekan                  | |\n");
-        printf("| |(1) untuk laki-laki    | |\n");
-        printf("| |(2) untuk perempuan    | |\n");
-        printf("+-+-----------------------+-+\n");
-        printf("\nJawaban anda : ");
+        box(5,5,116,9);
+        koor(50,7);printf("Tentukan jenis kelamin");
+        box(5,10,116,20);
+        koor(30,14);printf("%c Tekan 1 untuk Laki-laki",62);
+        koor(73,14);printf("%c Tekan 2 untuk Perempuan",62);
+        box(5,22,116,35);
+        koor(20,25);printf("Jawaban anda : ");
         scanf("%d",&gender);
-        printf("\nMasukkan usia dalam bulan       : ");
+        koor(20,27);printf("Masukkan usia dalam bulan       : ");
         scanf("%lf", &age1);
-        printf("\nMasukkan BBL bayi anda dalam kg : ");
+        koor(20,29);printf("Masukkan BBL bayi anda dalam kg : ");
         scanf("%lf", &BBL);
         hasil = Calculate_BMI();
-        printf("\nBBL anda adalah %.2lf g\n", hasil);
+        koor(20,31);printf("BBL anda adalah %.2lf g\n", hasil);
         Final_BMI();
         break;
         case 2:
-        printf("+-+-----------------------+-+\n");
-        printf("| |Tentukan jenis kelamin | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("|1|Laki-laki|             | |\n");
-        printf("+-+---------+             | |\n");
-        printf("|2|Perempuan|             | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("| |Tekan                  | |\n");
-        printf("| |(1) untuk laki-laki    | |\n");
-        printf("| |(2) untuk perempuan    | |\n");
-        printf("+-+-----------------------+-+\n");
-        printf("\nJawaban anda : ");
+        box(5,5,116,9);
+        koor(50,7);printf("Tentukan jenis kelamin");
+        box(5,10,116,20);
+        koor(30,14);printf("%c Tekan 1 untuk Laki-laki",62);
+        koor(73,14);printf("%c Tekan 2 untuk Perempuan",62);
+        box(5,22,116,35);
+        koor(20,25);printf("Jawaban anda : ");
         scanf("%d",&gender);
-        printf("\nMasukkan usia dalam bulan       : ");
+        koor(20,27);printf("Masukkan usia dalam bulan       : ");
         scanf("%lf", &age1);
-        printf("\nMasukkan berat badan dalam  kg  : ");
+        koor(20,29);printf("Masukkan berat badan dalam  kg  : ");
         scanf("%lf", &BBL);
         hasil = Calculate_BMI();
-        printf("\nBBL anda adalah %.2lf g\n", hasil);
+        koor(20,31);printf("BBL anda adalah %.2lf g\n", hasil);
         Final_BMI();
         break;
         case 3:
-        printf("+-+-----------------------+-+\n");
-        printf("| |Tentukan jenis kelamin | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("|1|Laki-laki|             | |\n");
-        printf("+-+---------+             | |\n");
-        printf("|2|Perempuan|             | |\n");
-        printf("+-+---------+-------------+-+\n");
-        printf("| |Tekan                  | |\n");
-        printf("| |(1) untuk laki-laki    | |\n");
-        printf("| |(2) untuk perempuan    | |\n");
-        printf("+-+-----------------------+-+\n");
-        printf("\nJawaban anda : ");
+        box(5,5,116,9);
+        koor(50,7);printf("Tentukan jenis kelamin");
+        box(5,10,116,20);
+        koor(30,14);printf("%c Tekan 1 untuk Laki-laki",62);
+        koor(73,14);printf("%c Tekan 2 untuk Perempuan",62);
+        box(5,22,116,38);
+        koor(20,25);printf("Jawaban anda : ");
         scanf("%d",&gender);
-        printf("\nMasukkan berat badan dalam kg : ");
+        koor(20,27);printf("Masukkan berat badan dalam kg : ");
         scanf("%lf", &mess);
-        printf("\nMasukkan usia dalam tahun     : ");
+        koor(20,29);printf("Masukkan usia dalam tahun     : ");
         scanf("%lf", &age1);
-        printf("\nLebih berapa bulan ?\n");
-        printf("Jika bulan ini tepat dengan hari ulang tahun anda maka ketikanlah 0\n");
-        printf("\nJawaban anda : ");
+        koor(20,31);printf("Lebih berapa bulan ?");
+        koor(20,32);printf("Jika bulan ini tepat dengan hari ulang tahun anda maka ketikanlah 0");
+        koor(20,33);printf("Jawaban anda : ");
         scanf("%lf",&bulan);
         hasil = Calculate_BMI();
-        printf("\nBBL anda adalah %.2lf kg\n", hasil);
+        koor(20,35);printf("BBL anda adalah %.2lf kg", hasil);
         Final_BMI();
         break;
         case 4:
-        printf("\nMasukkan berat badan dalam kg   : ");
-        scanf("%lf", &mess);
-        printf("\nMasukkan usia dalam tahun       : ");
-        scanf("%lf", &age1);
-        printf("\nMasukkan tinggi badan dalam cm  : ");
-        scanf("%lf", &height);
+        box(5,20,116,40);
+        koor(18,26);printf("Masukkan berat badan dalam kg");
+        box(55,25,80,27);koor(58,26);scanf("%lf", &mess);
+        koor(18,29);printf("Masukkan usia dalam tahun");
+        box(55,28,80,30);koor(58,29);scanf("%lf", &age1);
+        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        box(55,31,80,33);koor(58,32);scanf("%lf", &height);
         hasil = Calculate_BMI();
-        printf("\nBBI anda adalah %.2lf kg\n", hasil);
+        koor(52,35);Loading2();
+        bersih();
+        box(34,22,90,28);
+        koor(52,24);printf("BBI anda adalah %.2lf kg\n", hasil);
         Final_BMI();
         break;
         case 5:
-        printf("\nMasukkan usia dalam tahun       : ");
-        scanf("%lf", &age1);
-        printf("\nMasukkan berat badan dalam kg   : ");
-        scanf("%lf", &mess);
-        printf("\nMasukkan tinggi badan dalam cm  : ");
-        scanf("%lf", &height);
+        box(5,20,116,40);
+        koor(18,26);printf("Masukkan berat badan dalam kg");
+        box(55,25,80,27);koor(58,26);scanf("%lf", &mess);
+        koor(18,29);printf("Masukkan usia dalam tahun");
+        box(55,28,80,30);koor(58,29);scanf("%lf", &age1);
+        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        box(55,31,80,33);koor(58,32);scanf("%lf", &height);
         hasil = Calculate_BMI();
-        printf("\nBMI anda adalah %.2lf kg/m^2\n", hasil);
+        koor(52,35);Loading2();
+        bersih();
+        box(34,22,90,28);
+        koor(52,24);printf("BMI anda adalah %.2lf kg/m^2\n", hasil);
         Final_BMI();
         break;
         default:
@@ -510,22 +506,27 @@ double saran(){
 
 void up_or_down(){
 
-    printf("\n\n+-----------------------------------------+\n");
-    printf("|  Cetak pada file dengan menekan angka   |\n");
-    printf("+-------+---------------------------------+\n");
-    printf("| Angka |          Keterangan             |\n");
-    printf("+-------+---------------------------------+\n");
-    printf("|   1   | untuk kategori kekurangan gizi  |\n");
-    printf("|       | atau kekurangan berat badan     |\n");
-    printf("+-------+---------------------------------+\n");
-    printf("|   0   | untuk kategori gizi normal      |\n");
-    printf("|       | atau berat badan ideal          |\n");
-    printf("+-------+---------------------------------+\n");
-    printf("|   2   | untuk kategori kelebihan gizi   |\n");
-    printf("|       | kekurangan berat badan          |\n");
-    printf("+-------+---------------------------------+\n");
-    printf("\nJawaban anda : ");
+    printf("\n");
+    printf("\n");
+    printf("\n\n\t+-----------------------------------------+\n");
+    printf("\t|  Cetak pada file dengan menekan angka   |\n");
+    printf("\t+-------+---------------------------------+\n");
+    printf("\t| Angka |          Keterangan             |\n");
+    printf("\t+-------+---------------------------------+\n");
+    printf("\t|   1   | untuk kategori kekurangan gizi  |\n");
+    printf("\t|       | atau kekurangan berat badan     |\n");
+    printf("\t+-------+---------------------------------+\n");
+    printf("\t|   0   | untuk kategori gizi normal      |\n");
+    printf("\t|       | atau berat badan ideal          |\n");
+    printf("\t+-------+---------------------------------+\n");
+    printf("\t|   2   | untuk kategori kelebihan gizi   |\n");
+    printf("\t|       | atau kelebihan berat badan      |\n");
+    printf("\t+-------+---------------------------------+\n");
+
+    box(5,58,116,60);
+    koor(15,59);printf("Jawaban anda : ");
     scanf ("%d",&qna2);
+    printf("\n");
 }
 
 
@@ -535,264 +536,288 @@ void Final_BMI(){
 
     if(qna1 == 1){
     if((gender == 1 && age1 == 0.0) && (hasil < 2100)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 0.0) && (hasil >= 2100 && hasil < 2500)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 0.0) && (hasil >= 2500 && hasil < 4400)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("\nKategori gizi normal");
     }else if((gender == 1 && age1 == 0.0) && (hasil >= 4400)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 1.0) && (hasil < 2900)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("\nKategori gizi buruk");
     }else if((gender == 1 && age1 == 1.0) && (hasil >= 2900 && hasil < 3400)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("\nKategori gizi kurang");
     }else if((gender == 1 && age1 == 1.0) && (hasil >= 3400 && hasil < 5800)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 1.0) && (hasil >= 5800)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 2.0) && (hasil < 3800)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 2.0) && (hasil >= 3800 && hasil < 4300)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 2.0) && (hasil >= 4300 && hasil < 7100)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 2.0) && (hasil >= 7100)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 3.0) && (hasil < 4400)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 3.0) && (hasil >= 4400 && hasil < 5000)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 3.0) && (hasil >= 5000 && hasil < 8000)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 3.0) && (hasil >= 8000)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 4.0) && (hasil < 4900)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 4.0) && (hasil >= 4900 && hasil < 5600)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 4.0) && (hasil >= 5600 && hasil < 8700)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 4.0) && (hasil >= 8700)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 5.0) && (hasil < 5300)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 5.0) && (hasil >= 5300 && hasil < 6000)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 5.0) && (hasil >= 6000 && hasil < 9300)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 5.0) && (hasil >= 9300)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 6.0) && (hasil < 5700)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 6.0) && (hasil >= 5700 && hasil < 6400)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 6.0) && (hasil >= 6400 && hasil < 9800)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 6.0) && (hasil >= 9800)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
     if((gender == 2 && age1 == 0.0) && (hasil < 2000)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 0.0) && (hasil >= 2000 && hasil < 2400)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 0.0) && (hasil >= 2400 && hasil < 4200)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 0.0) && (hasil >= 4200)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 1.0) && (hasil < 2700)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 1.0) && (hasil >= 2700 && hasil < 3200)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 1.0) && (hasil >= 3200 && hasil < 5500)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 1.0) && (hasil >= 5500)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 2.0) && (hasil < 3400)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 2.0) && (hasil >= 3400 && hasil < 3900)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 2.0) && (hasil >= 3900 && hasil < 6600)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 2.0) && (hasil >= 6600)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 3.0) && (hasil < 4000)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 3.0) && (hasil >= 4000 && hasil < 4500)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 3.0) && (hasil >= 4500 && hasil < 7500)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 3.0) && (hasil >= 7500)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 4.0) && (hasil < 4400)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 4.0) && (hasil >= 4400 && hasil < 5000)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 4.0) && (hasil >= 5000 && hasil < 8200)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 4.0) && (hasil >= 8200)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 5.0) && (hasil < 4800)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 5.0) && (hasil >= 4800 && hasil < 5400)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 5.0) && (hasil >= 5400 && hasil < 8800)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 5.0) && (hasil >= 8800)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 6.0) && (hasil < 5100)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 6.0) && (hasil >= 5100 && hasil < 5700)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 6.0) && (hasil >= 5700 && hasil < 9300)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 6.0) && (hasil >= 9300)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
+    }
+    else{
+        koor(20,32);
+        printf("Tidak Valid");
+        koor(20,33);
+        exit(1);
     }
   }
     else if(qna1 == 2){
     if((gender == 1 && age1 == 7.0) && (hasil < 5900)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 7.0) && (hasil >= 5900 && hasil < 6700)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 7.0) && (hasil >= 6700 && hasil < 10300)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 7.0) && (hasil >= 10300)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
     else if((gender == 1 && age1 == 8.0) && (hasil < 6200)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 8.0) && (hasil >= 6200 && hasil < 6900)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 8.0) && (hasil >= 6900 && hasil < 10700)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 8.0) && (hasil >= 10700)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 9.0) && (hasil < 6400)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 9.0) && (hasil >= 6400 && hasil < 7100)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 9.0) && (hasil >= 7100 && hasil < 11000)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 9.0) && (hasil >= 11000)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 10.0) && (hasil < 6600)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 10.0) && (hasil >= 6600 && hasil < 7400)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 10.0) && (hasil >= 7400 && hasil < 11400)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 10.0) && (hasil >= 11400)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 11.0) && (hasil < 6800)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 11.0) && (hasil >= 6800 && hasil < 7600)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 11.0) && (hasil >= 7600 && hasil < 11700)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 11.0) && (hasil >= 11700)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 12.0) && (hasil < 6900)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 6900 && hasil < 7700)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 7700 && hasil < 12000)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 12000)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
     else if((gender == 2 && age1 == 7.0) && (hasil < 5300)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 7.0) && (hasil >= 5300 && hasil < 6000)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 7.0) && (hasil >= 6000 && hasil < 9800)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 7.0) && (hasil >= 9800)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
     else if((gender == 2 && age1 == 8.0) && (hasil < 5600)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 8.0) && (hasil >= 5600 && hasil < 6300)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 8.0) && (hasil >= 6300 && hasil < 10200)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 8.0) && (hasil >= 10200)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 9.0) && (hasil < 5800)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 5800 && hasil < 6500)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 6500 && hasil < 10500)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 9.0) && (hasil >= 10500)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 10.0) && (hasil < 5900)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 10.0) && (hasil >= 5900 && hasil < 6700)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 10.0) && (hasil >= 6700 && hasil < 10900)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 10.0) && (hasil >= 10900)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 2 && age1 == 11.0) && (hasil < 6100)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 2 && age1 == 11.0) && (hasil >= 6100 && hasil < 6900)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 2 && age1 == 11.0) && (hasil >= 6900 && hasil < 11200)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 2 && age1 == 11.0) && (hasil >= 11200)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
     }
      else if((gender == 1 && age1 == 12.0) && (hasil < 6300)){
-        printf("\nKategori gizi buruk");
+        koor(20,33);printf("Kategori gizi buruk");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 6300 && hasil < 7000)){
-        printf("\nKategori gizi kurang");
+        koor(20,33);printf("Kategori gizi kurang");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 7000 && hasil < 11500)){
-        printf("\nKategori gizi normal");
+        koor(20,33);printf("Kategori gizi normal");
     }else if((gender == 1 && age1 == 12.0) && (hasil >= 11500)){
-        printf("\nKategori gizi lebih");
+        koor(20,33);printf("Kategori gizi lebih");
+    }
+   else{
+        koor(20,32);
+        printf("Tidak Valid");
+        koor(20,33);
+        exit(1);
     }
   }
     else if(qna1== 3 || qna1 == 4){
     if(mess < hasil){
-        printf("\nKategori berat badan kurang");
+        koor(51,26);printf("Kategori berat badan kurang");
     }else if(mess > hasil){
-        printf("\nKategori berat badan berlebih");
+         koor(51,26);printf("Kategori berat badan berlebih");
     }else if(mess == hasil){
-        printf("\nKategori berat badan ideal");
+         koor(51,26);printf("Kategori berat badan ideal");
+    }
+   else{
+        koor(51,29);
+        printf("Tidak Valid");
+        koor(51,32);
+        exit(1);
     }
    }
     else if(qna1 == 5){
     if(hasil < 18.5){
-        printf("\nBerat badan kurang");
+        koor(51,26);printf("Berat badan kurang");
     }else if(hasil >= 18.5 && hasil <= 24.9){
-        printf("\nBerat badan normal");
+        koor(51,26);printf("Berat badan normal");
     }else if(hasil >= 25.0 && hasil <= 29.9){
-        printf("\nBerat badan berlebih");
+        koor(51,26);printf("Berat badan berlebih");
     }else if(hasil >= 30.0 && hasil <= 34.9){
-        printf("\nDiabetes tingkat I");
+        koor(51,26);printf("Diabetes tingkat I");
     }else if(hasil >= 35.0 && hasil <= 39.9){
-        printf("\nDiabetes tingkat II");
+        koor(51,26);printf("Diabetes tingkat II");
     }else if(hasil >= 40.0){
-        printf("\nDiabetes tingkat III");
+        koor(51,26);printf("Diabetes tingkat III");
+    }
+    else{
+        koor(51,29);
+        printf("Tidak Valid");
+        koor(51,32);
+        exit(1);
     }
   }
 
@@ -1058,7 +1083,7 @@ void result_BMI(){
 }
 
 
-void koor(int x , int y)
+void koor(double x , double y)
 {
     HANDLE h;
     COORD c;
@@ -1086,15 +1111,64 @@ void setcolor(unsigned short color)
 void Loading(){
 
     bersih();
-    koor(40,9);
-    printf("||===============================||\n");
-    koor(40,10);
-    printf("||    Perhitungan Badan Ideal    ||\n");
-    koor(40,11);
-    printf("||===============================||\n");
-    koor(40,14);
-    for(int i=1 ; i<=34 ; i++){
-        setcolor(7);
-        printf("%c",219);
-        Sleep(60); } }
+    setcolor(3);
+    box(10,7,117,35);
+    box1(35,18,90,27);
+    koor(53,22);
+    printf("Perhitungan Badan Ideal\n");
+    koor(50,24);
+    for(int i=1 ; i<=10; i++){
+        setcolor(3);
+        printf(" %c ",223);
+        Sleep(180); } }
+
+void Loading2(){
+
+     for(int i=1 ; i<=10; i++){
+        setcolor(3);
+        printf(" %c ",223);
+        Sleep(180); } }
+
+
+void box(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("\xcd");
+		koor(i,d);printf("\xcd");
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("\xba");
+		koor(c,j);printf("\xba");
+	}
+		koor(a,b);printf("\xc9");
+		koor(c,b);printf("\xbb");
+		koor(a,d);printf("\xc8");
+		koor(c,d);printf("\xbc");
+}
+
+void box1(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("%c",196);
+		koor(i,d);printf("%c",196);
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("%c",179);
+		koor(c,j);printf("%c",179);
+	}
+		koor(a,b);printf("%c",218);
+		koor(c,b);printf("%c",191);
+		koor(a,d);printf("%c",192);
+		koor(c,d);printf("%c",217);
+}
+
+
+
+
 
