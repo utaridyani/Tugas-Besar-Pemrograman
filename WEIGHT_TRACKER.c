@@ -16,6 +16,7 @@ void login ();
 void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan);
 void menuFitur();
 void fitur();
+void Tanggal_Waktu()
 
 struct data
 {
@@ -429,3 +430,36 @@ void fitur()
     koor(50,24); printf("Tracker");
     koor(50,27); printf("Tanya Dokter");
 }
+void Tanggal_Waktu(){
+int tanggal;
+int bulan1;
+int tahun;
+int Jam;
+int Menit;
+int Detik;
+    time_t current;
+    time(&current);
+
+    printf("%s", ctime(&current));
+
+    struct tm*local = localtime(&current);
+
+    tanggal = local->tm_mday;
+    bulan1  = local->tm_mon + 1;
+    tahun   = local->tm_year + 1900;
+    Jam     = local->tm_hour;
+    Menit   = local->tm_min;
+    Detik   = local->tm_sec;
+
+    if (Jam < 12){
+ 
+        printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    }
+    else{
+       
+        printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+    }
+    
+    printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+}
+
