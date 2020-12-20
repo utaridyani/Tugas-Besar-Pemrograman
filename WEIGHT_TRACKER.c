@@ -14,6 +14,8 @@ void pemilihanUser();
 void signup ();
 void login ();
 void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan);
+void menuFitur();
+void fitur();
 
 struct data
 {
@@ -146,16 +148,23 @@ void box1(int a,int b,int c,int d)
 //Fungsi untuk signup bagi user baru
 void signup ()
 {
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
     fp=fopen("data.txt", "w");
-
-    puts("Masukkan nama lengkap : ");
-    gets(a.nama);
-    puts("Masukkan username baru : ");
-    gets(a.username);
-    puts("Masukkan password : ");
-    gets(a.password);
-    puts("Masukkan nomor hp : ");
-    gets(a.noTLP);
+    setcolor(7);
+    koor (50,17);puts("Masukkan nama lengkap : ");
+    koor (76,17);gets(a.nama);
+    koor (50,20);puts("Masukkan username baru : ");
+    koor (76,20);gets(a.username);
+    setcolor(10);
+    koor (50,22);puts("*Password harus berjumlah 8 karakter");
+    setcolor(7);
+    koor (50,23);puts("Masukkan password : ");
+    koor (71,23);gets(a.password);
+    koor (50,26);puts("Masukkan nomor hp : ");
+    koor (71,26);gets(a.noTLP);
 
     fwrite(&a, sizeof(a), 1, fp);
     fclose(fp);
@@ -165,14 +174,18 @@ void signup ()
 //Fungsi Login
 void login ()
 {
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
     for(int i=0; i<3; i++)
     {
     fp=fopen("data.txt", "r");
-
-    printf("\nMasukkan username : ");
-    gets(username);
-    printf("\nMasukkan password : ");
-    for(int i=0; i<8; i++)
+    setcolor(7);
+    koor (50,17); printf("Masukkan username : ");
+    koor (71,17);gets(username);
+    koor (50,21); printf("Masukkan password : ");
+    koor (71,21);for(int i=0; i<8; i++)
     {
         ch=getch();
         password[i]=ch;
@@ -187,17 +200,24 @@ void login ()
 
         if(compare1==0 && compare2!=0)
         {
-            printf("Password anda salah!");
+            setcolor(4);
+            koor(50,25); printf("Password anda salah!");
+            koor(50,26); printf("Masukkan ulang data");
             ulang=ulang+1;
         }
         else if(compare1!=0 && compare2==0)
         {
-            printf("Username anda salah!");
+            setcolor(4);
+            koor(50,25); printf("Username anda salah!");
+            koor(50,26); printf("Masukkan ulang data");
             ulang=ulang+1;
         }
         else if(compare1!=0 && compare2!=0)
         {
-            printf("data anda salah!");
+            bersih();
+            setcolor(4);
+            koor(50,21); printf("Data anda salah!");
+            koor(50,26); printf("Masukkan ulang data");
             ulang=ulang+1;
         }
         else if(compare1==0 && compare2==0)
@@ -207,11 +227,22 @@ void login ()
     }
     if(ulang<3)
     {
-        printf("\nWelcome %s!", username);
+        setcolor(10);
+        koor(70,29); printf("Welcome %s!", username);
+        sleep(10);
+        menuFitur();
     }
     else
     {
-        printf("\nLogin Gagal!");
+        bersih();
+        setcolor(10);
+        box(30,7,117,35);
+        box1(40,12,107,30);
+        setcolor(4);
+        koor(50,21); printf("Login Gagal!");
+        koor(35,22); printf("Sihlakan melakukan rerun program untuk login ulang");
+        sleep(100);
+        ExitProcess(login);
     }
 }
 
@@ -257,8 +288,10 @@ if(panjangY == 21 && panjangX == 37)
     if (kode==3748)
     {
         bersih();
+        setcolor(10);
         box(30,7,117,35);
         box1(40,12,107,30);
+        setcolor(7);
         koor(45, 15); printf("1.Sign Up");
         koor(45, 16); printf("2.Sign In");
         koor(45, 18); printf("Masukkan Pilihan Anda : ");
@@ -303,10 +336,96 @@ if(panjangY == 21 && panjangX == 37)
 else if(panjangY == 21 && panjangX == 94)
 {
     bersih();
-   //Fitur-Fitur untuk user reguler
+    //Fitur BMI
 }
 
 getch();
 return 0;
 }
 
+void menuFitur()
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    panjangX=46;
+    panjangY=15;
+    do
+    {
+        fitur();
+
+        koor(panjangX,panjangY);
+        printf("-->");
+        button = getch();
+
+        if(button==80 && panjangY==15)
+        {
+            panjangY=18;
+        }
+        else if(button==72 && panjangY==18)
+        {
+            panjangY=15;
+        }
+        else if(button==80 && panjangY==18)
+        {
+            panjangY=21;
+        }
+        else if(button==72 && panjangY==21)
+        {
+            panjangY=18;
+        }
+        else if(button==80 && panjangY==21)
+        {
+            panjangY=24;
+        }
+        else if(button==72 && panjangY==24)
+        {
+            panjangY=21;
+        }
+        else if(button==80 && panjangY==24)
+        {
+            panjangY=27;
+        }
+        else if(button==72 && panjangY==27)
+        {
+            panjangY=24;
+        }
+
+    }while (button!=13);
+
+    if(panjangX==50 && panjangY==15)
+    {
+        //Fitur hitung bmi
+    }
+    else if(panjangX==50 && panjangY==18)
+    {
+        //Fitur menu sehat
+    }
+    else if(panjangX==50 && panjangY==21)
+    {
+        //fitur hitung kalori
+    }
+    else if(panjangX==50 && panjangY==24)
+    {
+        //fitur tracker
+    }
+    else if(panjangX==50 && panjangY==27)
+    {
+        //fitur tanya dokter
+    }
+}
+
+void fitur()
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(68,9,82,11);
+    setcolor(7);
+    koor(70,10); printf("PILIH FITUR");
+    koor(50,15); printf("Hitung BMI");
+    koor(50,18); printf("Menu Sehat");
+    koor(50,21); printf("Hitung Kalori");
+    koor(50,24); printf("Tracker");
+    koor(50,27); printf("Tanya Dokter");
+}
