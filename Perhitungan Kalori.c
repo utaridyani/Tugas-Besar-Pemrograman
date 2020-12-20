@@ -2,7 +2,7 @@
 #include<conio.h>
 #include<windows.h>
 #include<time.h>
-#include<dos.h>
+
 
 int gender, age1,ask1;                        /* Variabel untuk memasukkan nilai
                                          age1   = untuk memasukkan dan menyimpan nilai penentuan usia
@@ -43,31 +43,29 @@ int main(){
 
 void utama(){
 bersih();
-Tanggal_Waktu();
-   printf("\t\t||=================================||\n");
-   printf("\t\t||  Program Perhitungan Kebutuhan  ||\n");
-   printf("\t\t||         Kalori Harian           ||\n");
-   printf("\t\t||=================================||\n");
 
-   printf("\n+-+-----------------------+-+\n");
-   printf("| |Tentukan jenis kelamin | |\n");
-   printf("+-+---------+-------------+-+\n");
-   printf("|1|Laki-laki|             | |\n");
-   printf("+-+---------+             | |\n");
-   printf("|2|Perempuan|             | |\n");
-   printf("+-+---------+-------------+-+\n");
-   printf("| |Tekan                  | |\n");
-   printf("| |(1) untuk laki-laki    | |\n");
-   printf("| |(2) untuk perempuan    | |\n");
-   printf("+-+-----------------------+-+\n");
-    printf("\nJawaban anda : ");
-    scanf ("%d",&gender);
-    printf("\nMasukkan usia                  : ");
-    scanf ("%d", &age1);
-    printf("\nmasukkan tinggi badan dalam cm : ");
-    scanf ("%lf",&height);
-    printf("\nmasukkan berat badan dalam kg  : ");
-    scanf ("%lf",&mess);
+   box(5,7,116,20);
+   koor(8,8);Tanggal_Waktu();
+   box(38,10,85,16);
+   koor(53,12);printf("Program Perhitungan");
+   koor(54,14);printf("Kebutuhan Kalori");
+   box(5,21,116,23);
+   koor(52,22);printf("Tentukan jenis kelamin");
+   box(5,24,116,34);
+   koor(25,28);printf("%c Tekan 1 untuk Laki-laki",62);
+   koor(75,28);printf("%c Tekan 2 untuk Perempuan",62);
+   box(5,35,116,38);
+   koor(15,36);printf("Jawaban anda : ");
+   scanf("%d",&gender);
+   koor(52,39);Loading2();
+   bersih();
+    box(5,20,116,40);
+        koor(18,26);printf("Masukkan berat badan dalam kg");
+        box(55,25,80,27);koor(58,26);scanf("%lf", &mess);
+        koor(18,29);printf("Masukkan usia dalam tahun");
+        box(55,28,80,30);koor(58,29);scanf("%lf", &age1);
+        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        box(55,31,80,33);koor(58,32);scanf("%lf", &height);
     tanya();
 }
 
@@ -83,21 +81,25 @@ double BMR(){
 
 void tanya(){
 
-    printf("\n+----------------------------------+\n");
-    printf("|Tentukan level aktivitas fisik    |\n");
-    printf("+---+-------------+----------------+\n");
-    printf("|No | Level       |  Tekan Angka   |\n");
-    printf("+---+-------------+----------------+\n");
-    printf("| 1 |Tidak aktif  |      (1)       |\n");
-    printf("| 2 |Cukup aktif  |      (2)       |\n");
-    printf("| 3 |Aktif        |      (3)       |\n");
-    printf("| 4 |Sangat aktif |      (4)       |\n");
-    printf("+---+-------------+----------------+\n");
-    printf("\nJawaban anda : ");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    koor(5,44);printf("+----------------------------------+\n");
+    koor(5,45);printf("|Tentukan level aktivitas fisik    |\n");
+    koor(5,46);printf("+---+-------------+----------------+\n");
+    koor(5,47);printf("|No | Level       |  Tekan Angka   |\n");
+    koor(5,48);printf("+---+-------------+----------------+\n");
+    koor(5,49);printf("| 1 |Tidak aktif  |      (1)       |\n");
+    koor(5,50);printf("| 2 |Cukup aktif  |      (2)       |\n");
+    koor(5,51);printf("| 3 |Aktif        |      (3)       |\n");
+    koor(5,52);printf("| 4 |Sangat aktif |      (4)       |\n");
+    koor(5,53);printf("+---+-------------+----------------+\n");
+    box(5,57,116,75);
+    koor(10,59);printf("Jawaban anda : ");
     scanf ("%d", &ask1);
-    hasil_TEE = TEE();
-    printf("Total energi anda sebesar %.2lf kcals",hasil_TEE);
-    result_TEE();
+    koor(10,62);hasil_TEE = TEE();
+    koor(10,63);printf("Total energi anda sebesar %.2lf kcals",hasil_TEE);
+    koor(10,65);result_TEE();
 }
 
 double TEE(){
@@ -139,16 +141,16 @@ void result_TEE(){
     hasil = Final_TEE();
 
      if(gender == 1){
-        if(hasil < 2500){
-            printf("\nKebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
-        }else if(hasil > 2500){
-            printf("\nKebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
+        if(hasil_TEE < 2500){
+            printf("Kebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
+        }else if(hasil_TEE > 2500){
+            printf("Kebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
         }
      if(gender == 2){
         if(hasil_TEE < 2000){
-            printf("\nKebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
+            printf("Kebutuhan kalori anda kurang sehingga perlu ditambah sebesar %.2lf kcals agar stabil\n", hasil);
         }else if(hasil_TEE > 2000){
-            printf("\nKebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
+            printf("Kebutuhan kalori anda lebih sehingga perlu dikurangi sebesar %.2lf kcals agar stabil\n", hasil);
         }
     }
 
@@ -183,19 +185,17 @@ void setcolor(unsigned short color)
 void Loading(){
 
     bersih();
-    koor(37,9);
-    printf("||===========================================||\n");
-    koor(37,10);
-    printf("||    Perhitungan Kebutuhan Kalori Harian    ||\n");
-    koor(37,11);
-    printf("||===========================================||\n");
-    koor(37,14);
-    for(int i=1 ; i<=48 ; i++){
-        setcolor(7);
-        printf("%c",219);
-        Sleep(60);
-        }
-}
+    setcolor(3);
+    box(10,7,117,35);
+    box(35,18,90,27);
+    koor(52,22);
+    printf("Perhitungan Kebutuhan Kalori");
+    koor(50,24);
+    for(int i=1 ; i<=10; i++){
+        setcolor(3);
+        printf(" %c ",223);
+        Sleep(180); } }
+
 
 void Tanggal_Waktu(){
     time_t current;
@@ -212,10 +212,40 @@ void Tanggal_Waktu(){
     Menit   = local->tm_min;
     Detik   = local->tm_sec;
 
-    if (Jam < 12)
-        printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
-    else
-        printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+    if (Jam < 12){
+        koor(8,9);printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    }
+    else{
+        koor(8,9);printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+    }
 
-    printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+    koor(8,10);printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
 }
+
+void box(int a,int b,int c,int d)
+{
+	int i,j;
+	for(i=a;i<c;i++)
+	{
+		koor(i,b);printf("\xcd");
+		koor(i,d);printf("\xcd");
+	}
+	for(j=b;j<d;j++)
+	{
+		koor(a,j);printf("\xba");
+		koor(c,j);printf("\xba");
+	}
+		koor(a,b);printf("\xc9");
+		koor(c,b);printf("\xbb");
+		koor(a,d);printf("\xc8");
+		koor(c,d);printf("\xbc");
+}
+
+void Loading2(){
+
+     for(int i=1 ; i<=10; i++){
+        setcolor(3);
+        printf(" %c ",223);
+        Sleep(180); } }
+
+
