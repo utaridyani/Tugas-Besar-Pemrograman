@@ -82,59 +82,70 @@ void box1(int a,int b,int c,int d)
 
 void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga)
 {
-    box(1,1,100,30);
-    box1(20,5,80,7);
-    koor(42,6); printf("Masukkan BMI anda");
-    koor(10,10); printf("BMI bulan ke-1 : ");
-	scanf("%lf", &bulanPertama);
-	koor(10,13); printf("BMI bulan ke-2 : ");
-	scanf("%lf", &bulanKedua);
-	koor(10,16); printf("BMI bulan ke-3 : ");
-	scanf("%lf", &bulanKetiga);
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
+    setcolor(7);
+    koor(60,14);printf("Masukkan BMI anda");
+    koor(45,19);printf("BMI bulan ke-1 : ");
+	koor(67,19);scanf("%lf", &bulanPertama);
+	koor(45,23);printf("BMI bulan ke-2 : ");
+	koor(67,23);scanf("%lf", &bulanKedua);
+	koor(45,27); printf("BMI bulan ke-3 : ");
+	koor(67,27);scanf("%lf", &bulanKetiga);
+
 	bersih();
 
-    box(1,1,100,30);
+	setcolor(10);
+	box(30,7,117,35);
     //box rekapitulasi
-    box1(2,2,99,15);
-    box1(38,3,60,5);
+    box1(31,8,116,20);
+    box1(63,9,90,11);
     //box tracking
-    box1(2,16,99,29);
-    box1(38,17,60,19);
+    box1(31,21,116,34);
+    box1(63,22,90,24);
 
-    koor(41,4); printf("REKAPITULASI BMI");
-	koor(5,7); printf("BMI bulan pertama adalah %.2f", bulanPertama);
-	koor(5,10); printf("BMI bulan kedua adalah %.2f", bulanKedua);
-	koor(5,13); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
+    koor(68,10); printf("REKAPITULASI BMI");
+	koor(35,14); printf("BMI bulan pertama adalah %.2f", bulanPertama);
+	koor(35,16); printf("BMI bulan kedua adalah %.2f", bulanKedua);
+	koor(35,18); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
 
-    koor(45,18); printf("TRACKING");
+    koor(75,23); printf("TRACKING");
 
 	if(bulanPertama>bulanKedua)
 	{
 		penurunan1=bulanPertama-bulanKedua;
-		koor(5,22); printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
+		koor(35,27);printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
 	}
 	else if(bulanKedua>bulanPertama)
 	{
 		kenaikan1=bulanKedua-bulanPertama;
-		koor(5,22); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
+		koor(35,27); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
 	}
 	else if(bulanPertama=bulanKedua)
 	{
-		koor(5,22); printf("BMI anda stabil pada bulan kedua");
+		koor(35,27);printf("BMI anda stabil pada bulan kedua");
 	}
 
 	if(bulanKedua>bulanKetiga)
 	{
 		penurunan2=bulanKedua - bulanKetiga;
-		koor(5, 25); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
+		koor(35,30); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
 	}
 	else if(bulanKetiga>bulanKedua)
 	{
 		kenaikan2=bulanKetiga - bulanKedua;
-		koor(5, 25); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
+		koor(35,30);printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
 	}
 	else if(bulanKetiga=bulanKedua)
 	{
-		koor(5, 25); printf("BMI anda stabil pada bulan ketiga");
+		koor(35,30); printf("BMI anda stabil pada bulan ketiga");
 	}
 }
+
+void setcolor(unsigned short color)
+{
+    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hCon,color);
+}
+
