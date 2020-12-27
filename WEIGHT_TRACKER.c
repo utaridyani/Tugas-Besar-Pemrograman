@@ -54,6 +54,14 @@ double TEE();
 void result_TEE();
 double Final_TEE();
 
+//prototype tanya dokter
+int tanyaDokter (int hari, int dokter);
+void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, char password, int panjangX,int panjangY,int button);
+void TanggalWaktu();
+
+//prototype tracker
+void errorHandling();
+void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga);
 
 struct data
 {
@@ -70,6 +78,9 @@ int ulang=0;
 int ch;
 int panjangX,panjangY,button,kode;
 int pilihan;
+int hari, dokter, pengguna, userID;
+double penurunan1, penurunan2, kenaikan1 , kenaikan2;
+double bulanPertama, bulanKedua, bulanKetiga;
 FILE * fp;
 
 //Fungsi main
@@ -96,6 +107,12 @@ void koor(int x , int y)
 void bersih()
 {
     system("cls");
+}
+
+//fungsi untuk menangani kesalahan input
+void errorHandling()
+{
+	printf("Input yang anda masukkan salah!");
 }
 
 //Fungsi Blocking yang menyebabkan program berhenti sejenak dan tidak melakukan proses
@@ -469,17 +486,17 @@ void menuFitur()
     else if(panjangX==46 && panjangY==24)
     {
         //fitur tracker
-         tracker(pilihan, penurunan1, penurunan2, kenaikan1 ,kenaikan2, bulanPertama, bulanKedua, bulanKetiga);
+        tracker(pilihan, penurunan1, penurunan2, kenaikan1 , kenaikan2, bulanPertama, bulanKedua, bulanKetiga);
     }
     else if(panjangX==46 && panjangY==27)
     {
         //fitur tanya dokter
-         mainTanyaDokter (hari, dokter, pengguna, userID);
+         mainTanyaDokter (hari, dokter, pengguna, userID, password, panjangX, panjangY, button);
     }
     else if(panjangX==46 && panjangY==30){
         //Fitur Bakar Kalori
-        Loading();
-        perhitungankalorisaatolahraga();
+        //Loading();
+        //perhitungankalorisaatolahraga();
     }
     getch();
 
@@ -558,7 +575,6 @@ void Main_Menu_BMI(){
    bersih();
    setcolor(10);
    box(5,7,116,30);
-   setcolor(7);
    Tanggal_Waktu();
    box1(45,16,80,22);
    setcolor(7);
@@ -1570,11 +1586,11 @@ bersih();
    setcolor(10);
    box(5,7,116,20);
    setcolor(7);
-   Tanggal_Waktu();
-   box(38,12,85,18);
+   koor(8,8);Tanggal_Waktu();
+   box(38,10,85,16);
    setcolor(7);
-   koor(53,14);printf("Program Perhitungan");
-   koor(54,16);printf("Kebutuhan Kalori");
+   koor(53,12);printf("Program Perhitungan");
+   koor(54,14);printf("Kebutuhan Kalori");
    setcolor(10);
    box(5,21,116,23);
    setcolor(7);
@@ -1696,5 +1712,507 @@ void result_TEE(){
     }
 
     }
+}
+int tanyaDokter (int hari, int dokter){
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
+    box1(66,14,82,16);
+    TanggalWaktu();
+	koor(68,15); printf("TANYA DOKTER");
+	koor(45,18); printf("Pilih hari untuk sesi tanya jawab : ");
+	koor (50,20); printf("Senin");
+	koor (50,22); printf("Selasa");
+	koor (50,24); printf("Rabu");
+	koor (50,26); printf("Kamis");
+	koor (50,28); printf("Jumat");
+
+	printf("\n\n\n");
+}
+
+void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, char password, int panjangX,int panjangY,int button)
+{
+    panjangX = 47;
+    panjangY = 20;
+
+    do{
+    tanyaDokter(hari, dokter);
+
+    koor(panjangX,panjangY);
+    printf(">>");
+    button = getch();
+
+    //72=tombol UP
+    //80=tombol DOWN
+    //13=ENTER
+    if(button == 80 && panjangY == 20)
+    {
+        panjangY = 22;
+    }
+    else if(button == 80 && panjangY == 22)
+    {
+        panjangY = 24;
+    }
+    else if(button == 80 && panjangY == 24)
+    {
+        panjangY = 26;
+    }
+    else if(button == 80 && panjangY == 26)
+    {
+        panjangY = 28;
+    }
+    else if(button == 72 && panjangY == 28)
+    {
+        panjangY = 26;
+    }
+    else if(button == 72 && panjangY == 26)
+    {
+        panjangY = 24;
+    }
+    else if(button == 72 && panjangY == 24)
+    {
+        panjangY = 22;
+    }
+    else if(button == 72 && panjangY == 22)
+    {
+        panjangY = 20;
+    }
+}while(button != 13);
+
+if(panjangX == 47 && panjangY == 20)
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+
+    koor(51,10);printf("====================================================");
+    koor(51,11);printf("Anda akan melakukan sesi tanya jawab pada hari Senin");
+    koor(51,12);printf("====================================================");
+
+    setcolor(7);
+    koor(35,17);printf("Pilihan dokter yang bertugas pada hari Senin");
+    koor(35,18);printf("--------------------------------------------");
+    koor(45,20);printf("1. dr.Putu Putri");
+    koor(48,21);printf("Dokter spesialis Gizi di Rumah Sakit Badung");
+    koor(45,23);printf("2. dr. Made Putra");
+    koor(48,24);printf("Dokter Umum di Rumah Sakit Bangli");
+    koor(45,26);printf("3.dr. Ari Putri");
+    koor(48,27);printf("Dokter di Klinik Kasih Ibu");
+
+    setcolor(10);
+    koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
+    koor(86,31);scanf("%d",&dokter);
+
+		switch (dokter){
+			case 1 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 2 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 3 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+            default :
+                printf("Input Anda salah!");
+		}
+}
+else if (panjangX == 47 && panjangY == 22)
+{
+bersih();
+    setcolor(10);
+    box(30,7,117,35);
+
+    koor(51,10);printf("=====================================================");
+    koor(51,11);printf("Anda akan melakukan sesi tanya jawab pada hari Selasa");
+    koor(51,12);printf("=====================================================");
+
+    setcolor(7);
+    koor(35,17);printf("Pilihan dokter yang bertugas pada hari Selasa");
+    koor(35,18);printf("--------------------------------------------");
+    koor(45,20);printf("1. dr.Putu Putra");
+    koor(48,21);printf("Dokter spesialis Gizi di Rumah Sakit Denpasar");
+    koor(45,23);printf("2. dr. Made Putra");
+    koor(48,24);printf("Dokter Umum di Rumah Sakit Bangli");
+    koor(45,26);printf("3.dr. Ananda");
+    koor(48,27);printf("Dokter di Klinik Kasih Ibu");
+
+    setcolor(10);
+    koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
+    koor(86,31);scanf("%d",&dokter);
+
+		switch (dokter){
+			case 1 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putra");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 2 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 3 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ananda");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+		}
+}
+else if (panjangX == 47 && panjangY == 24)
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+
+    koor(51,10);printf("===================================================");
+    koor(51,11);printf("Anda akan melakukan sesi tanya jawab pada hari Rabu");
+    koor(51,12);printf("===================================================");
+
+    setcolor(7);
+    koor(35,17);printf("Pilihan dokter yang bertugas pada hari Rabu");
+    koor(35,18);printf("--------------------------------------------");
+    koor(45,20);printf("1. dr.Putu Putri");
+    koor(48,21);printf("Dokter spesialis Gizi di Rumah Sakit Badung");
+    koor(45,23);printf("2. dr. Bila Putri");
+    koor(48,24);printf("Dokter Umum di Rumah Sakit Bangli");
+    koor(45,26);printf("3.dr. Kartika Putri");
+    koor(48,27);printf("Dokter di Klinik Putra Beta");
+
+    setcolor(10);
+    koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
+    koor(86,31);scanf("%d",&dokter);
+
+		switch (dokter){
+			case 1 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 2 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Bila Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 3 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Kartika Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+		}
+}
+else if(panjangX == 47 && panjangY == 26)
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+
+    koor(51,10);printf("====================================================");
+    koor(51,11);printf("Anda akan melakukan sesi tanya jawab pada hari Kamis");
+    koor(51,12);printf("====================================================");
+
+    setcolor(7);
+    koor(35,17);printf("Pilihan dokter yang bertugas pada hari Kamis");
+    koor(35,18);printf("--------------------------------------------");
+    koor(45,20);printf("1. dr.Putu Putri");
+    koor(48,21);printf("Dokter spesialis Gizi di Rumah Sakit Badung");
+    koor(45,23);printf("2. dr. Made Putra");
+    koor(48,24);printf("Dokter Umum di Rumah Sakit Bangli");
+    koor(45,26);printf("3.dr. Ari Putri");
+    koor(48,27);printf("Dokter di Klinik Kasih Ibu");
+
+    setcolor(10);
+    koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
+    koor(86,31);scanf("%d",&dokter);
+
+		switch (dokter){
+			case 1 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 2 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 3 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+				koor(45,16);printf ("----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+		}
+}
+else if(panjangX == 47 && panjangY == 28)
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+
+    koor(51,10);printf("====================================================");
+    koor(51,11);printf("Anda akan melakukan sesi tanya jawab pada hari Jumat");
+    koor(51,12);printf("====================================================");
+
+    setcolor(7);
+    koor(35,17);printf("Pilihan dokter yang bertugas pada hari Jumat");
+    koor(35,18);printf("--------------------------------------------");
+    koor(45,20);printf("1. dr.Putu Putri");
+    koor(48,21);printf("Dokter spesialis Gizi di Rumah Sakit Badung");
+    koor(45,23);printf("2. dr. Made Putra");
+    koor(48,24);printf("Dokter Umum di Rumah Sakit Bangli");
+    koor(45,26);printf("3.dr. Ari Putri");
+    koor(48,27);printf("Dokter di Klinik Kasih Ibu");
+
+    setcolor(10);
+    koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
+    koor(86,31);scanf("%d",&dokter);
+
+		switch (dokter){
+			case 1 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 2 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+			case 3 :
+			    bersih();
+                setcolor(10);
+                box(30,7,117,35);
+                box1(40,12,107,30);
+                setcolor(7);
+				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+				koor(45,16);printf ("-----------------------------------------------------------");
+				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+				koor(45,22);printf("Kontak : 081234321111");
+				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+				break;
+		}
+}
+getch();
+return(0);
+}
+
+void TanggalWaktu(){
+
+    int tanggal;
+    int bulan1;
+    int tahun;
+    int Jam;
+    int Menit;
+    int Detik;
+    time_t current;
+    time(&current);
+
+    struct tm*local = localtime(&current);
+
+    tanggal = local->tm_mday;
+    bulan1  = local->tm_mon + 1;
+    tahun   = local->tm_year + 1900;
+    Jam     = local->tm_hour;
+    Menit   = local->tm_min;
+    Detik   = local->tm_sec;
+
+    box1(99,8,112,11);
+    koor(112,9);printf("%c%c%c%c%c", 196,196,196,196,196);
+
+    if (Jam < 12){
+
+        koor(102,9);printf("%02d:%02d:%02d\n", Jam,Menit,Detik);
+    }
+    else{
+
+        koor(102,9);printf("%02d:%02d:%02d\n", Jam-12,Menit,Detik);
+    }
+
+    koor(101,10);printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
+}
+
+void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga)
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box1(40,12,107,30);
+    TanggalWaktu();
+    setcolor(7);
+    koor(60,14);printf("Masukkan BMI anda");
+    koor(45,19);printf("BMI bulan ke-1 : ");
+	koor(67,19);scanf("%lf", &bulanPertama);
+	koor(45,23);printf("BMI bulan ke-2 : ");
+	koor(67,23);scanf("%lf", &bulanKedua);
+	koor(45,27); printf("BMI bulan ke-3 : ");
+	koor(67,27);scanf("%lf", &bulanKetiga);
+
+	bersih();
+
+	setcolor(10);
+	box(30,7,117,35);
+    //box rekapitulasi
+    box1(31,8,116,20);
+    box1(63,9,90,11);
+    //box tracking
+    box1(31,21,116,34);
+    box1(63,22,90,24);
+
+    koor(68,10); printf("REKAPITULASI BMI");
+	koor(35,14); printf("BMI bulan pertama adalah %.2f", bulanPertama);
+	koor(35,16); printf("BMI bulan kedua adalah %.2f", bulanKedua);
+	koor(35,18); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
+
+    koor(75,23); printf("TRACKING");
+
+	if(bulanPertama>bulanKedua)
+	{
+		penurunan1=bulanPertama-bulanKedua;
+		koor(35,27);printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
+	}
+	else if(bulanKedua>bulanPertama)
+	{
+		kenaikan1=bulanKedua-bulanPertama;
+		koor(35,27); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
+	}
+	else if(bulanPertama=bulanKedua)
+	{
+		koor(35,27);printf("BMI anda stabil pada bulan kedua");
+	}
+
+	if(bulanKedua>bulanKetiga)
+	{
+		penurunan2=bulanKedua - bulanKetiga;
+		koor(35,30); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
+	}
+	else if(bulanKetiga>bulanKedua)
+	{
+		kenaikan2=bulanKetiga - bulanKedua;
+		koor(35,30);printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
+	}
+	else if(bulanKetiga=bulanKedua)
+	{
+		koor(35,30); printf("BMI anda stabil pada bulan ketiga");
+	}
 }
 
