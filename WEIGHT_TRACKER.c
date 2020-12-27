@@ -63,6 +63,11 @@ void TanggalWaktu();
 void errorHandling();
 void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga);
 
+//Prototype Rekomendasi Menu Sehat
+int bmi;
+void utama_sehat();
+void Rekomendasi_makanan ();
+
 struct data
 {
     char nama[100];
@@ -473,9 +478,9 @@ void menuFitur()
     else if(panjangX==46 && panjangY==18)
     {
         //Fitur menu sehat
-        // Loading();
-        //utama_sehat();
-        //Rekomendasi_makanan();
+        Loading();
+        utama_sehat();
+        Rekomendasi_makanan();
     }
     else if(panjangX==46 && panjangY==21)
     {
@@ -495,8 +500,8 @@ void menuFitur()
     }
     else if(panjangX==46 && panjangY==30){
         //Fitur Bakar Kalori
-        //Loading();
-        //perhitungankalorisaatolahraga();
+        Loading();
+        perhitungankalorisaatolahraga();
     }
     getch();
 
@@ -575,6 +580,7 @@ void Main_Menu_BMI(){
    bersih();
    setcolor(10);
    box(5,7,116,30);
+   setcolor(7);
    Tanggal_Waktu();
    box1(45,16,80,22);
    setcolor(7);
@@ -1586,11 +1592,12 @@ bersih();
    setcolor(10);
    box(5,7,116,20);
    setcolor(7);
-   koor(8,8);Tanggal_Waktu();
-   box(38,10,85,16);
+   Tanggal_Waktu();
+   setcolor(10);
+   box(38,12,85,18);
    setcolor(7);
-   koor(53,12);printf("Program Perhitungan");
-   koor(54,14);printf("Kebutuhan Kalori");
+   koor(53,14);printf("Program Perhitungan");
+   koor(54,16);printf("Kebutuhan Kalori");
    setcolor(10);
    box(5,21,116,23);
    setcolor(7);
@@ -1713,6 +1720,7 @@ void result_TEE(){
 
     }
 }
+
 int tanyaDokter (int hari, int dokter){
     bersih();
     setcolor(10);
@@ -2122,119 +2130,119 @@ void utama_sehat(){
 bersih();
 Tanggal_Waktu();
 setcolor(10);
-box(35,7,117,60);
+box(12,7,117,60);
 
-    koor(47,10);printf("\t\t||=================================||\n");
-    koor(47,11);printf("\t\t||         Rekomendasi Menu        ||\n");
-    koor(47,12);printf("\t\t||          Makanan Sehat          ||\n");
-    koor(47,13);printf("\t\t||=================================||\n");
+    koor(45,10);printf("||=================================||");
+    koor(45,11);printf("||         Rekomendasi Menu        ||");
+    koor(45,12);printf("||          Makanan Sehat          ||");
+    koor(45,13);printf("||=================================||");
 
-    koor(40,15);printf("+-----------------------------------------------------------------------+\n");
-    koor(40,16);printf("|                                                                       |\n");
-    koor(40,17);printf("+-----------------------------------------------------------------------+\n");
-    koor(40,18);printf("|Tentukan range BMI anda :                                              |\n");
-    koor(40,19);printf("|                                                                       |\n");
-    koor(40,20);printf("|       1. BMI < 17.0  (Sangat Kurus)                                   |\n");
-    koor(40,21);printf("|       2. 17.0 - 18.4 (Kurus)                                          |\n");
-    koor(40,22);printf("|       3. 18.5 - 25.0 (Normal)                                         |\n");
-    koor(40,23);printf("|       4. 25.1 - 27.0 (Gemuk)                                          |\n");
-    koor(40,24);printf("|       5. 27.0 < BMI  (Sangat Gemuk)                                   |\n");
-    koor(40,25);printf("|                                                                       |\n");
-    koor(40,26);printf("| Input nomor sesuai dengan BMI anda                                    |\n");
-    koor(40,27);printf("+-----------------------------------------------------------------------+\n");
-    koor(40,28);printf("Jawaban anda : ");
+    koor(15,15);printf("+-----------------------------------------------------------------------+\n");
+    koor(15,16);printf("|                                                                       |\n");
+    koor(15,17);printf("+-----------------------------------------------------------------------+\n");
+    koor(15,18);printf("|Tentukan range BMI anda :                                              |\n");
+    koor(15,19);printf("|                                                                       |\n");
+    koor(15,20);printf("|       1. BMI < 17.0  (Sangat Kurus)                                   |\n");
+    koor(15,21);printf("|       2. 17.0 - 18.4 (Kurus)                                          |\n");
+    koor(15,22);printf("|       3. 18.5 - 25.0 (Normal)                                         |\n");
+    koor(15,23);printf("|       4. 25.1 - 27.0 (Gemuk)                                          |\n");
+    koor(15,24);printf("|       5. 27.0 < BMI  (Sangat Gemuk)                                   |\n");
+    koor(15,25);printf("|                                                                       |\n");
+    koor(15,26);printf("| Input nomor sesuai dengan BMI anda                                    |\n");
+    koor(15,27);printf("+-----------------------------------------------------------------------+\n");
+    koor(15,28);printf("Jawaban anda : ");
     scanf ("%d",&bmi);
-    koor(40,29);printf("\n");
-    koor(40,30);printf("\n");
-    koor(40,31);printf("\n");
+    koor(15,29);printf("\n");
+    koor(15,30);printf("\n");
+    koor(15,31);printf("\n");
 
     if(bmi == 1){
-        koor(40,34);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,35);printf("|Anda sangat kekurangan gizi                                            |\n");
-        koor(40,36);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
-        koor(40,38);printf("|                                                                       |\n");
-        koor(40,39);printf("|       1. Kentang                                                      |\n");
-        koor(40,40);printf("|       2. Nasi                                                         |\n");
-        koor(40,41);printf("|       3. Susu                                                         |\n");
-        koor(40,42);printf("|       4. Kacang                                                       |\n");
-        koor(40,43);printf("|       5. Alpukat                                                      |\n");
-        koor(40,44);printf("|       6. Daging Merah                                                 |\n");
-        koor(40,45);printf("|                                                                       |\n");
-        koor(40,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
-        koor(40,47);printf("| Anda harus mengonsumsi makanan dengan kadar protein dan               |\n");
-        koor(40,48);printf("| karbohidrat yang tinggi.                                              |\n");
-        koor(40,49);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,34);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,35);printf("|Anda sangat kekurangan gizi                                            |\n");
+        koor(15,36);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
+        koor(15,38);printf("|                                                                       |\n");
+        koor(15,39);printf("|       1. Kentang                                                      |\n");
+        koor(15,40);printf("|       2. Nasi                                                         |\n");
+        koor(15,41);printf("|       3. Susu                                                         |\n");
+        koor(15,42);printf("|       4. Kacang                                                       |\n");
+        koor(15,43);printf("|       5. Alpukat                                                      |\n");
+        koor(15,44);printf("|       6. Daging Merah                                                 |\n");
+        koor(15,45);printf("|                                                                       |\n");
+        koor(15,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
+        koor(15,47);printf("| Anda harus mengonsumsi makanan dengan kadar protein dan               |\n");
+        koor(15,48);printf("| karbohidrat yang tinggi.                                              |\n");
+        koor(15,49);printf("+-----------------------------------------------------------------------+\n");
         }
     else if(bmi == 2){
-        koor(40,34);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,35);printf("|Anda kekurangan gizi                                                   |\n");
-        koor(40,36);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
-        koor(40,38);printf("|                                                                       |\n");
-        koor(40,39);printf("|       1. Roti                                                         |\n");
-        koor(40,40);printf("|       2. Nasi                                                         |\n");
-        koor(40,41);printf("|       3. Tempe                                                        |\n");
-        koor(40,42);printf("|       4. Tahu                                                         |\n");
-        koor(40,43);printf("|       5. Keju                                                         |\n");
-        koor(40,44);printf("|       6. Daging                                                       |\n");
-        koor(40,45);printf("|                                                                       |\n");
-        koor(40,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
-        koor(40,47);printf("| Anda harus mengonsumsi makanan dengan kadar protein dan               |\n");
-        koor(40,48);printf("| karbohidrat yang seimbang.                                            |\n");
-        koor(40,49);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,34);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,35);printf("|Anda kekurangan gizi                                                   |\n");
+        koor(15,36);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
+        koor(15,38);printf("|                                                                       |\n");
+        koor(15,39);printf("|       1. Roti                                                         |\n");
+        koor(15,40);printf("|       2. Nasi                                                         |\n");
+        koor(15,41);printf("|       3. Tempe                                                        |\n");
+        koor(15,42);printf("|       4. Tahu                                                         |\n");
+        koor(15,43);printf("|       5. Keju                                                         |\n");
+        koor(15,44);printf("|       6. Daging                                                       |\n");
+        koor(15,45);printf("|                                                                       |\n");
+        koor(15,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
+        koor(15,47);printf("| Anda harus mengonsumsi makanan dengan kadar protein dan               |\n");
+        koor(15,48);printf("| karbohidrat yang seimbang.                                            |\n");
+        koor(15,49);printf("+-----------------------------------------------------------------------+\n");
         }
     else if(bmi == 3){
-        koor(40,34);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,35);printf("| Anda sehat                                                            |\n");
-        koor(40,36);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,37);printf("| Anda bebas mengonsumsi makanan apa saja.                              |\n");
-        koor(40,38);printf("| Dengan catatan, gizi dalam setiap makanan yang anda                   |\n");
-        koor(40,39);printf("| konsumsi seimbang dan tidak berlebihan.                               |\n");
-        koor(40,40);printf("|                                                                       |\n");
-        koor(40,41);printf("| Anda harus tetap memerhatikan 4 Sehat 5 Sempurna setiap kali          |\n");
-        koor(40,42);printf("| anda mengonsumsi makanan agar tidak kekurangan maupun kelebihan gizi  |\n");
-        koor(40,43);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,34);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,35);printf("| Anda sehat                                                            |\n");
+        koor(15,36);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,37);printf("| Anda bebas mengonsumsi makanan apa saja.                              |\n");
+        koor(15,38);printf("| Dengan catatan, gizi dalam setiap makanan yang anda                   |\n");
+        koor(15,39);printf("| konsumsi seimbang dan tidak berlebihan.                               |\n");
+        koor(15,40);printf("|                                                                       |\n");
+        koor(15,41);printf("| Anda harus tetap memerhatikan 4 Sehat 5 Sempurna setiap kali          |\n");
+        koor(15,42);printf("| anda mengonsumsi makanan agar tidak kekurangan maupun kelebihan gizi  |\n");
+        koor(15,43);printf("+-----------------------------------------------------------------------+\n");
         }
      else if(bmi == 4){
-        koor(40,34);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,35);printf("|Anda kelebihan gizi                                                    |\n");
-        koor(40,36);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
-        koor(40,38);printf("|                                                                       |\n");
-        koor(40,39);printf("|       1. Oatmeal                                                      |\n");
-        koor(40,40);printf("|       2. Apel                                                         |\n");
-        koor(40,41);printf("|       3. Putih Telur                                                  |\n");
-        koor(40,42);printf("|       4. Brokoli                                                      |\n");
-        koor(40,43);printf("|       5. Daging Ikan                                                  |\n");
-        koor(40,44);printf("|       6. Camilan Rendah Kalori                                        |\n");
-        koor(40,45);printf("|                                                                       |\n");
-        koor(40,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
-        koor(40,47);printf("| Anda harus menghindari makanan berlemak dan berkadar gula tinggi      |\n");
-        koor(40,48);printf("| Anda juga harus mengurangi konsumsi garam berlebih, selain itu        |\n");
-        koor(40,49);printf("| anda perlu mengatur porsi makan anda dan rajin berolahraga            |\n");
-        koor(40,50);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,34);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,35);printf("|Anda kelebihan gizi                                                    |\n");
+        koor(15,36);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
+        koor(15,38);printf("|                                                                       |\n");
+        koor(15,39);printf("|       1. Oatmeal                                                      |\n");
+        koor(15,40);printf("|       2. Apel                                                         |\n");
+        koor(15,41);printf("|       3. Putih Telur                                                  |\n");
+        koor(15,42);printf("|       4. Brokoli                                                      |\n");
+        koor(15,43);printf("|       5. Daging Ikan                                                  |\n");
+        koor(15,44);printf("|       6. Camilan Rendah Kalori                                        |\n");
+        koor(15,45);printf("|                                                                       |\n");
+        koor(15,46);printf("| Dapat disimpulkan bahwa,                                              |\n");
+        koor(15,47);printf("| Anda harus menghindari makanan berlemak dan berkadar gula tinggi      |\n");
+        koor(15,48);printf("| Anda juga harus mengurangi konsumsi garam berlebih, selain itu        |\n");
+        koor(15,49);printf("| anda perlu mengatur porsi makan anda dan rajin berolahraga            |\n");
+        koor(15,50);printf("+-----------------------------------------------------------------------+\n");
         }
     else if(bmi == 5){
-        koor(40,34);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,35);printf("|Anda sangat kelebihan gizi                                             |\n");
-        koor(40,36);printf("+-----------------------------------------------------------------------+\n");
-        koor(40,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
-        koor(40,38);printf("|  Makanan dengan kadar kalori yang rendah                              |\n");
-        koor(40,39);printf("|     Contohnya:                                                        |\n");
-        koor(40,40);printf("|       1. Tomat Ceri                                                   |\n");
-        koor(40,41);printf("|       2. Semangka                                                     |\n");
-        koor(40,42);printf("|       3. Mentimun                                                     |\n");
-        koor(40,43);printf("|       4. Bayam                                                        |\n");
-        koor(40,44);printf("|       5. Daun Bawang                                                  |\n");
-        koor(40,45);printf("|       6. Kembang Kol                                                  |\n");
-        koor(40,46);printf("|                                                                       |\n");
-        koor(40,47);printf("| Dapat disimpulkan bahwa,                                              |\n");
-        koor(40,48);printf("| Anda harus mengonsumsi makanan dengan kadar kalori yang rendah        |\n");
-        koor(40,49);printf("| Anda juga harus mengurangi konsumsi                                   |\n");
-        koor(40,50);printf("| makanan yang berminyak dan berlemak                                   |\n");
-        koor(40,51);printf("| Anda perlu mengetahui kadar gizi tiap makanan yang anda santap        |\n");
-        koor(40,52);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,34);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,35);printf("|Anda sangat kelebihan gizi                                             |\n");
+        koor(15,36);printf("+-----------------------------------------------------------------------+\n");
+        koor(15,37);printf("|Menu makanan yang cocok untuk anda adalah :                            |\n");
+        koor(15,38);printf("|  Makanan dengan kadar kalori yang rendah                              |\n");
+        koor(15,39);printf("|     Contohnya:                                                        |\n");
+        koor(15,40);printf("|       1. Tomat Ceri                                                   |\n");
+        koor(15,41);printf("|       2. Semangka                                                     |\n");
+        koor(15,42);printf("|       3. Mentimun                                                     |\n");
+        koor(15,43);printf("|       4. Bayam                                                        |\n");
+        koor(15,44);printf("|       5. Daun Bawang                                                  |\n");
+        koor(15,45);printf("|       6. Kembang Kol                                                  |\n");
+        koor(15,46);printf("|                                                                       |\n");
+        koor(15,47);printf("| Dapat disimpulkan bahwa,                                              |\n");
+        koor(15,48);printf("| Anda harus mengonsumsi makanan dengan kadar kalori yang rendah        |\n");
+        koor(15,49);printf("| Anda juga harus mengurangi konsumsi                                   |\n");
+        koor(15,50);printf("| makanan yang berminyak dan berlemak                                   |\n");
+        koor(15,51);printf("| Anda perlu mengetahui kadar gizi tiap makanan yang anda santap        |\n");
+        koor(15,52);printf("+-----------------------------------------------------------------------+\n");
         }
 
     koor(40,53);printf("+-----------------------------------------------------------------------+\n");
@@ -2397,7 +2405,7 @@ void perhitungankalorisaatolahraga()
 bersih();
 Tanggal_Waktu();
 setcolor(10);
-box(35,7,117,35);
+box(15,7,117,35);
     koor(47,10);printf("============================================================\n");
     koor(47,11);printf("                 Menghitung Pembakaran Kalori            \n");
     koor(47,12);printf("                       Saat Berolahraga                   \n");
