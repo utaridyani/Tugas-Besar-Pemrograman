@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <windows.h>
 #include <string.h>
+#include <time.h>
+#include <dos.h>
 
 //prototype WEIGHT TRACKER
 void koor(int x , int y);
@@ -16,7 +18,7 @@ void login ();
 void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan);
 void menuFitur();
 void fitur();
-void Tanggal_Waktu()
+void Tanggal_Waktu();
 
 //prototype program BMI
 double height, mess;
@@ -454,9 +456,9 @@ void menuFitur()
     else if(panjangX==46 && panjangY==18)
     {
         //Fitur menu sehat
-         Loading();
-         utama_sehat();
-         Rekomendasi_makanan();
+        // Loading();
+        //utama_sehat();
+        //Rekomendasi_makanan();
     }
     else if(panjangX==46 && panjangY==21)
     {
@@ -1564,30 +1566,44 @@ void result_BMI(){
 //Fungsi Perhitungan Kalori
 void utama(){
 bersih();
-
+   setcolor(10);
    box(5,7,116,20);
+   setcolor(7);
    koor(8,8);Tanggal_Waktu();
    box(38,10,85,16);
    setcolor(7);
    koor(53,12);printf("Program Perhitungan");
    koor(54,14);printf("Kebutuhan Kalori");
+   setcolor(10);
    box(5,21,116,23);
+   setcolor(7);
    koor(52,22);printf("Tentukan jenis kelamin");
+   setcolor(10);
    box(5,24,116,34);
+   setcolor(7);
    koor(25,28);printf("%c Tekan 1 untuk Laki-laki",62);
    koor(75,28);printf("%c Tekan 2 untuk Perempuan",62);
+   setcolor(10);
    box(5,35,116,38);
+   setcolor(7);
    koor(15,36);printf("Jawaban anda : ");
    scanf("%d",&gender);
-   koor(52,39);Loading2();
+   koor(52,42);Loading2();
    bersih();
+   setcolor(10);
     box(5,20,116,40);
+    setcolor(7);
         koor(18,26);printf("Masukkan berat badan dalam kg");
-        box(55,25,80,27);koor(58,26);scanf("%lf", &mess);
+        setcolor(10);
+        box(55,25,80,27);setcolor(7);koor(58,26);scanf("%lf", &mess);
+        setcolor(7);
         koor(18,29);printf("Masukkan usia dalam tahun");
-        box(55,28,80,30);koor(58,29);scanf("%lf", &age1);
+        setcolor(10);
+        box(55,28,80,30);setcolor(7);koor(58,29);scanf("%lf", &age1);
+        setcolor(7);
         koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
-        box(55,31,80,33);koor(58,32);scanf("%lf", &height);
+        setcolor(10);
+        box(55,31,80,33);setcolor(7);koor(58,32);scanf("%lf", &height);
     tanya();
 }
 
@@ -1606,6 +1622,7 @@ void tanya(){
     printf("\n");
     printf("\n");
     printf("\n");
+    setcolor(7);
     koor(5,44);printf("+----------------------------------+\n");
     koor(5,45);printf("|Tentukan level aktivitas fisik    |\n");
     koor(5,46);printf("+---+-------------+----------------+\n");
@@ -1616,8 +1633,9 @@ void tanya(){
     koor(5,51);printf("| 3 |Aktif        |      (3)       |\n");
     koor(5,52);printf("| 4 |Sangat aktif |      (4)       |\n");
     koor(5,53);printf("+---+-------------+----------------+\n");
+    setcolor(10);
     box(5,57,116,75);
-    koor(10,59);printf("Jawaban anda : ");
+    setcolor(7);koor(10,59);printf("Jawaban anda : ");
     scanf ("%d", &ask);
     koor(10,62);hasil_TEE = TEE();
     koor(10,63);printf("Total energi anda sebesar %.2lf kcals",hasil_TEE);
