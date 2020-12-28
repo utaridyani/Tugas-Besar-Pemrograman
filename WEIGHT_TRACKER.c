@@ -19,6 +19,10 @@ void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan);
 void menuFitur();
 void fitur();
 void Tanggal_Waktu();
+void back();
+void backreg();
+void backpremium();
+
 
 //prototype program BMI
 double height, mess;
@@ -288,7 +292,8 @@ void login ()
     if(ulang<3)
     {
         setcolor(10);
-        koor(70,29); printf("Welcome %s!", username);
+        koor(67,28); printf("Welcome %s!", username);
+        koor(67,29); printf("wait...........");
         sleep(5);
         menuFitur();
     }
@@ -351,10 +356,14 @@ if(panjangY == 21 && panjangX == 37)
         setcolor(10);
         box(30,7,117,35);
         box1(40,12,107,30);
-        setcolor(7);
+        for(int i=40; i<108; i++)
+        {
+            koor(i,23); printf("%c", 179);
+            koor(i,27); printf("%c", 179);
+        }
         koor(45, 15); printf("1.Sign Up");
-        koor(45, 16); printf("2.Sign In");
-        koor(45, 18); printf("Masukkan Pilihan Anda : ");
+        koor(45, 18); printf("2.Sign In");
+        koor(45, 25); printf("Masukkan Pilihan Anda : ");
         scanf("%d", &pilihan); fflush(stdin);
 
         if(pilihan==1)
@@ -396,18 +405,16 @@ if(panjangY == 21 && panjangX == 37)
 else if(panjangY == 21 && panjangX == 94)
 {
  // Fitur Hitung BMI
-
     Loading();
     Main_Menu_BMI();
     up_or_down();
     result_BMI();
+    backreg();
 }
 
 getch();
 return 0;
 }
-
-
 
 void menuFitur()
 {
@@ -474,6 +481,7 @@ void menuFitur()
         Main_Menu_BMI();
         up_or_down();
         result_BMI();
+        backpremium();
     }
     else if(panjangX==46 && panjangY==18)
     {
@@ -481,27 +489,32 @@ void menuFitur()
         Loading();
         utama_sehat();
         Rekomendasi_makanan();
+        backpremium();
     }
     else if(panjangX==46 && panjangY==21)
     {
         //fitur hitung kalori
         Loading();
         utama();
+        backpremium();
     }
     else if(panjangX==46 && panjangY==24)
     {
         //fitur tracker
         tracker(pilihan, penurunan1, penurunan2, kenaikan1 , kenaikan2, bulanPertama, bulanKedua, bulanKetiga);
+        backpremium();
     }
     else if(panjangX==46 && panjangY==27)
     {
         //fitur tanya dokter
          mainTanyaDokter (hari, dokter, pengguna, userID, password, panjangX, panjangY, button);
+         backpremium();
     }
     else if(panjangX==46 && panjangY==30){
         //Fitur Bakar Kalori
         Loading();
         perhitungankalorisaatolahraga();
+        backpremium();
     }
     getch();
 
@@ -2596,5 +2609,81 @@ void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1
 	{
 		koor(35,30); printf("BMI anda stabil pada bulan ketiga");
 	}
+}
+
+void back()
+{
+    bersih();
+    setcolor(10);
+    box(30,7,117,35);
+    box(34,11,113,31);
+    box1(59,19,64,21);
+    box1(84,19,89,21);
+    koor(60,20); printf("Back");
+    koor(85,20); printf("Exit");
+}
+
+void backpremium()
+{
+    panjangX = 56;
+    panjangY = 20;
+
+    do{
+    back();
+
+    koor(panjangX,panjangY);
+    printf(">>");
+    button = getch();
+
+    if(button==77 && panjangX==56)
+    {
+        panjangX=81;
+    }
+    else if(button==75 && panjangX==81)
+    {
+        panjangX=56;
+    }
+    }while(button!=13);
+
+    if(panjangX==56 && panjangY==20)
+    {
+        menuFitur();
+    }
+    else if(panjangX==81 && panjangY==20)
+    {
+        ExitProcess(menuAwal);
+    }
+}
+
+void backreg()
+{
+    panjangX = 56;
+    panjangY = 20;
+
+    do{
+    back();
+
+    koor(panjangX,panjangY);
+    printf(">>");
+    button = getch();
+
+    if(button==77 && panjangX==56)
+    {
+        panjangX=81;
+    }
+    else if(button==75 && panjangX==81)
+    {
+        panjangX=56;
+    }
+    }while(button!=13);
+
+    if(panjangX==56 && panjangY==20)
+    {
+        menuAwal(panjangX, panjangY, button, kode, pilihan);
+    }
+    else if(panjangX==81 && panjangY==20)
+    {
+        ExitProcess(menuAwal);
+    }
 }
 
