@@ -2499,9 +2499,7 @@ box(15,7,117,35);
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain badminton sebanyak %.2f\n",pembakarankalori);
 	}
-            else{
-                    koor(47,26);printf("Input yang anda masukkan salah");
-	}
+            
 
     koor(47,31);printf(" \n");
 	koor(47,32);printf("============================================================\n");
