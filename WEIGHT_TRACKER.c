@@ -261,9 +261,12 @@ void login ()
 
         compare1=strcmp(username, a.username);
         compare2=strcmp(password, a.password);
-
+        box1(40,12,107,30);
         if(compare1==0 && compare2!=0)
         {
+            bersih();
+            setcolor(10);
+            box1(40,12,107,30);
             setcolor(4);
             koor(50,25); printf("Password anda salah!");
             koor(50,26); printf("Masukkan ulang data");
@@ -271,6 +274,9 @@ void login ()
         }
         else if(compare1!=0 && compare2==0)
         {
+            bersih();
+            setcolor(10);
+            box1(40,12,107,30);
             setcolor(4);
             koor(50,25); printf("Username anda salah!");
             koor(50,26); printf("Masukkan ulang data");
@@ -279,6 +285,8 @@ void login ()
         else if(compare1!=0 && compare2!=0)
         {
             bersih();
+            setcolor(10);
+            box1(40,12,107,30);
             setcolor(4);
             koor(50,21); printf("Data anda salah!");
             koor(50,26); printf("Masukkan ulang data");
@@ -412,6 +420,7 @@ else if(panjangY == 21 && panjangX == 94)
     printf("\n");
     Sleep(6);
     backreg();
+
 }
 
 getch();
@@ -493,7 +502,7 @@ void menuFitur()
         Loading();
         utama_sehat();
         Rekomendasi_makanan();
-        delay(6000);
+        delay(10000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==21)
@@ -501,7 +510,7 @@ void menuFitur()
         //fitur hitung kalori
         Loading();
         utama();
-        delay(6000);
+        delay(10000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==24)
@@ -509,7 +518,7 @@ void menuFitur()
         //fitur tracker
         tracker(pilihan, penurunan1, penurunan2, kenaikan1 , kenaikan2, bulanPertama, bulanKedua, bulanKetiga);
         printf("\n");
-        delay(6000);
+        delay(10000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==27)
@@ -517,14 +526,14 @@ void menuFitur()
         //fitur tanya dokter
          mainTanyaDokter (hari, dokter, pengguna, userID, password, panjangX, panjangY, button);
          printf("\n");
-         delay(6000);
+         delay(10000);
          backpremium();
     }
     else if(panjangX==46 && panjangY==30){
         //Fitur Bakar Kalori
         Loading();
         perhitungankalorisaatolahraga();
-        delay(6000);
+        delay(10000);
         backpremium();
     }
     getch();
@@ -2630,6 +2639,7 @@ void back()
     box1(84,19,89,21);
     koor(60,20); printf("Back");
     koor(85,20); printf("Exit");
+
 }
 
 void backpremium()
@@ -2688,10 +2698,12 @@ void backreg()
 
     if(panjangX==56 && panjangY==20)
     {
+        bersih();
         menuAwal(panjangX, panjangY, button, kode, pilihan);
     }
     else if(panjangX==81 && panjangY==20)
     {
+        bersih();
         ExitProcess(menuAwal);
     }
 }
