@@ -409,6 +409,8 @@ else if(panjangY == 21 && panjangX == 94)
     Main_Menu_BMI();
     up_or_down();
     result_BMI();
+    printf("\n");
+    Sleep(6);
     backreg();
 }
 
@@ -481,6 +483,8 @@ void menuFitur()
         Main_Menu_BMI();
         up_or_down();
         result_BMI();
+        printf("\n");
+        Sleep(6);
         backpremium();
     }
     else if(panjangX==46 && panjangY==18)
@@ -489,6 +493,7 @@ void menuFitur()
         Loading();
         utama_sehat();
         Rekomendasi_makanan();
+        delay(6000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==21)
@@ -496,24 +501,30 @@ void menuFitur()
         //fitur hitung kalori
         Loading();
         utama();
+        delay(6000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==24)
     {
         //fitur tracker
         tracker(pilihan, penurunan1, penurunan2, kenaikan1 , kenaikan2, bulanPertama, bulanKedua, bulanKetiga);
+        printf("\n");
+        delay(6000);
         backpremium();
     }
     else if(panjangX==46 && panjangY==27)
     {
         //fitur tanya dokter
          mainTanyaDokter (hari, dokter, pengguna, userID, password, panjangX, panjangY, button);
+         printf("\n");
+         delay(6000);
          backpremium();
     }
     else if(panjangX==46 && panjangY==30){
         //Fitur Bakar Kalori
         Loading();
         perhitungankalorisaatolahraga();
+        delay(6000);
         backpremium();
     }
     getch();
@@ -584,7 +595,7 @@ void Loading(){
 void Loading2(){
 
      for(int i=1 ; i<=10; i++){
-        setcolor(3);
+        setcolor(10);
         printf(" %c ",223);
         Sleep(180); } }
 
@@ -716,7 +727,7 @@ void ask1(){
         koor(18,29);printf("Masukkan usia dalam tahun");
         setcolor(10);
         box(55,28,80,30);setcolor(7);koor(58,29);scanf("%lf", &age1);
-        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        koor(18,32);printf("Masukkan tinggi badan dalam cm   ");
         setcolor(10);
         box(55,31,80,33);setcolor(7);koor(58,32);scanf("%lf", &height);
         hasil = Calculate_BMI();
@@ -738,7 +749,7 @@ void ask1(){
         koor(18,29);printf("Masukkan usia dalam tahun");
         setcolor(10);
         box(55,28,80,30);setcolor(7);koor(58,29);scanf("%lf", &age1);
-        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        koor(18,32);printf("Masukkan tinggi badan dalam cm   ");
         setcolor(10);
         box(55,31,80,33);setcolor(7);koor(58,32);scanf("%lf", &height);
         hasil = Calculate_BMI();
@@ -1638,7 +1649,7 @@ bersih();
         setcolor(10);
         box(55,28,80,30);setcolor(7);koor(58,29);scanf("%lf", &age1);
         setcolor(7);
-        koor(18,32);printf("Masukkan tinggi badan dalam cm  : ");
+        koor(18,32);printf("Masukkan tinggi badan dalam cm   ");
         setcolor(10);
         box(55,31,80,33);setcolor(7);koor(58,32);scanf("%lf", &height);
     tanya();
@@ -1659,7 +1670,7 @@ void tanya(){
     printf("\n");
     printf("\n");
     printf("\n");
-    setcolor(7);
+    setcolor(10);
     koor(5,44);printf("+----------------------------------+\n");
     koor(5,45);printf("|Tentukan level aktivitas fisik    |\n");
     koor(5,46);printf("+---+-------------+----------------+\n");
@@ -2499,7 +2510,7 @@ box(15,7,117,35);
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain badminton sebanyak %.2f\n",pembakarankalori);
 	}
-            
+
 
     koor(47,31);printf(" \n");
 	koor(47,32);printf("============================================================\n");
