@@ -312,7 +312,7 @@ void login ()
         box(30,7,117,35);
         box1(40,12,107,30);
         setcolor(4);
-        koor(55,21); printf("Login Gagal!");
+        koor(68,21); printf("Login Gagal!");
         koor(53,22); printf("Silahkan melakukan rerun program untuk login ulang");
         sleep(100);
         ExitProcess(login);
