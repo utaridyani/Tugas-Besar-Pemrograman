@@ -4,7 +4,12 @@
 #include <time.h>
 #include <dos.h>
 
-//prototype WEIGHT TRACKER
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//                  Menu Utama                   //
+//===============================================//
+//===============================================//
 void koor(int x , int y);
 void box(int a,int b,int c,int d);
 void box1(int a, int b, int c, int d);
@@ -23,8 +28,12 @@ void back();
 void backreg();
 void backpremium();
 
-
-//prototype program BMI
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//           Fitur Penghitungan BMI              //
+//===============================================//
+//===============================================//
 double height, mess;
 double BBL;
 double age1;
@@ -47,7 +56,12 @@ void result_BMI();
 void Loading();
 void Loading2();
 
-//Prototype Perhitungan Kalori
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//           Fitur Penghitungan Kalori           //
+//===============================================//
+//===============================================//
 int ask;
 double bmr;
 double hasiltee,hasil_TEE;
@@ -58,20 +72,40 @@ double TEE();
 void result_TEE();
 double Final_TEE();
 
-//prototype tanya dokter
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//             Fitur Tanya Dokter                //
+//===============================================//
+//===============================================//
 int tanyaDokter (int hari, int dokter);
 void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, char password, int panjangX,int panjangY,int button);
 void TanggalWaktu();
 
-//prototype tracker
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//                Fitur Tracker                  //
+//===============================================//
+//===============================================//
 void errorHandling();
 void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga);
 
-//Prototype Rekomendasi Menu Sehat
+//===============================================//
+//===============================================//
+//             Deklarasi Prototype               //
+//              Fitur Menu Sehat                 //
+//===============================================//
+//===============================================//
 int bmi;
 void utama_sehat();
 void Rekomendasi_makanan ();
 
+//===============================================//
+//===============================================//
+//          Deklarasi Variable Global            //
+//===============================================//
+//===============================================//
 struct data
 {
     char nama[100];
@@ -92,16 +126,30 @@ double penurunan1, penurunan2, kenaikan1 , kenaikan2;
 double bulanPertama, bulanKedua, bulanKetiga;
 FILE * fp;
 
-//Fungsi main
+//===============================================//
+//===============================================//
+//                 Main Function                 //
+//===============================================//
+//===============================================//
 int main()
 {
     menuAwal(panjangX, panjangY, button, kode, pilihan);
 }
 
+//------------Fungsi Untuk Menu Utama------------//
 
-
-//FUNGSI-FUNGSI
-//Fungsi Untuk Menentukan letak kursor
+//===============================================//
+//===============================================//
+// Nama Fungsi : koor                            //
+// Input       : Int x, int y                    //
+// Output      : Void                            //
+// Deskripsi   : Meletakkan karakter pada posisi //
+//               yang diinginkan sesuai          //
+//               koordinat                       //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void koor(int x , int y)
 {
     HANDLE h;
@@ -112,32 +160,83 @@ void koor(int x , int y)
     SetConsoleCursorPosition(h,c);
 }
 
-//Fungsi untuk membersihkan layar tanpa menutup program
+//===============================================//
+//===============================================//
+// Nama Fungsi : bersih                          //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Membersihkan layar dari program //
+//               yang telah berjalan             //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void bersih()
 {
     system("cls");
 }
 
-//fungsi untuk menangani kesalahan input
+//===============================================//
+//===============================================//
+// Nama Fungsi : errorHandling                   //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Menangani kesalahan input oleh  //
+//               user                            //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void errorHandling()
 {
-	printf("Input yang anda masukkan salah!");
+    printf("Input yang anda masukkan salah!");
 }
 
-//Fungsi Blocking yang menyebabkan program berhenti sejenak dan tidak melakukan proses
+//===============================================//
+//===============================================//
+// Nama Fungsi : delay                           //
+// Input       : Int sec                         //
+// Output      : Void                            //
+// Deskripsi   : Memblocking program sehingga    //
+//               terjadi jeda sesuai waktu yang  //
+//               telah ditentukan                //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void delay(int sec)
 {
     Sleep(sec);
 }
 
-//Fungsi Untuk Memberi Warna
+//===============================================//
+//===============================================//
+// Nama Fungsi : setcolor                        //
+// Input       : Unsigned short color            //
+// Output      : Void                            //
+// Deskripsi   : Memberikan warna pada karakter  //
+//               yang akan ditampilkan           //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void setcolor(unsigned short color)
 {
     HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hCon,color);
 }
 
-//Tampilan Pertama nama program
+//===============================================//
+//===============================================//
+// Nama Fungsi : namaProgram                     //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Tampilan pertama program yang   //
+//               memuat nama program dan penyusun//
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void namaProgram()
 {
     setcolor(10);
@@ -154,7 +253,16 @@ void namaProgram()
         Sleep(100); }
 }
 
-//Fungsi Pemilihan Jenis User
+//===============================================//
+//===============================================//
+// Nama Fungsi : pemilihanUser                   //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Menampilkan pilihan jenis user  //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void pemilihanUser()
 {
     bersih();
@@ -169,47 +277,77 @@ void pemilihanUser()
     koor(99,21);printf("Reguler");
 }
 
-//Fungsi Pembetukan Box Bergaris 2
+//===============================================//
+//===============================================//
+// Nama Fungsi : box                             //
+// Input       : Int a, Int b, Int c, Int d      //
+// Output      : Char                            //
+// Deskripsi   : Membentuk box dengan 2 garis    //
+//               pinggir menggunakan looping     //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void box(int a,int b,int c,int d)
 {
-	int i,j;
-	for(i=a;i<c;i++)
-	{
-		koor(i,b);printf("\xcd");
-		koor(i,d);printf("\xcd");
-	}
-	for(j=b;j<d;j++)
-	{
-		koor(a,j);printf("\xba");
-		koor(c,j);printf("\xba");
-	}
-		koor(a,b);printf("\xc9");
-		koor(c,b);printf("\xbb");
-		koor(a,d);printf("\xc8");
-		koor(c,d);printf("\xbc");
+    int i,j;
+    for(i=a;i<c;i++)
+    {
+        koor(i,b);printf("\xcd");
+        koor(i,d);printf("\xcd");
+    }
+    for(j=b;j<d;j++)
+    {
+        koor(a,j);printf("\xba");
+        koor(c,j);printf("\xba");
+    }
+        koor(a,b);printf("\xc9");
+        koor(c,b);printf("\xbb");
+        koor(a,d);printf("\xc8");
+        koor(c,d);printf("\xbc");
 }
 
-//Fungsi Pembentukan Box bergaris 1
+//===============================================//
+//===============================================//
+// Nama Fungsi : box1                            //
+// Input       : Int a, Int b, Int c, Int d      //
+// Output      : Char                            //
+// Deskripsi   : Membentuk box dengan 1 garis    //
+//               pinggir menggunakan looping     //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void box1(int a,int b,int c,int d)
 {
-	int i,j;
-	for(i=a;i<c;i++)
-	{
-		koor(i,b);printf("%c",196);
-		koor(i,d);printf("%c",196);
-	}
-	for(j=b;j<d;j++)
-	{
-		koor(a,j);printf("%c",179);
-		koor(c,j);printf("%c",179);
-	}
-		koor(a,b);printf("%c",218);
-		koor(c,b);printf("%c",191);
-		koor(a,d);printf("%c",192);
-		koor(c,d);printf("%c",217);
+    int i,j;
+    for(i=a;i<c;i++)
+    {
+        koor(i,b);printf("%c",196);
+        koor(i,d);printf("%c",196);
+    }
+    for(j=b;j<d;j++)
+    {
+        koor(a,j);printf("%c",179);
+        koor(c,j);printf("%c",179);
+    }
+        koor(a,b);printf("%c",218);
+        koor(c,b);printf("%c",191);
+        koor(a,d);printf("%c",192);
+        koor(c,d);printf("%c",217);
 }
 
-//Fungsi untuk signup bagi user baru
+//===============================================//
+//===============================================//
+// Nama Fungsi : signup                          //
+// Input       : Struct data                     //
+// Output      : String                          //
+// Deskripsi   : Akses membuat akun untuk peng-  //
+//               guna baru                       //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void signup ()
 {
     bersih();
@@ -235,7 +373,17 @@ void signup ()
     login();
 }
 
-//Fungsi Login
+//===============================================//
+//===============================================//
+// Nama Fungsi : Login                           //
+// Input       : Char username, char password    //
+// Output      : String                          //
+// Deskripsi   : Akses login untuk pengguna yang //
+//               telah memiliki akun             //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void login ()
 {
     bersih();
@@ -319,7 +467,18 @@ void login ()
     }
 }
 
-//Fungsi Menu Awal
+//===============================================//
+//===============================================//
+// Nama Fungsi : menuAwal                       //
+// Input       : int panjangX,int panjangY,      // 
+//               int button,int kode, int pilihan//
+// Output      : String                          //
+// Deskripsi   : Fungsi untuk user melakukan pe- //
+//               milihan jenis user              //
+//                                               //
+// Created by Utari                              //                              
+//===============================================//
+//===============================================//
 void menuAwal(int panjangX,int panjangY, int button,int kode, int pilihan)
 {
     setcolor(10);
@@ -337,7 +496,7 @@ do{
     printf("-->");
     button = getch();
 
-    //Opsi untuk memindahkan user
+    //Opsi untuk memindahkan pilihan jenis user
     if(button == 77 && panjangX == 37)
     {
         panjangX = 94;
@@ -420,13 +579,22 @@ else if(panjangY == 21 && panjangX == 94)
     printf("\n");
     Sleep(6);
     backreg();
-
 }
-
 getch();
 return 0;
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : menuFitur                       //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Fungsi untuk user melakukan pe- //
+//               pemilihan fitur                 //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void menuFitur()
 {
     bersih();
@@ -537,9 +705,18 @@ void menuFitur()
         backpremium();
     }
     getch();
-
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : Fitur                           //
+// Input       : Void                            //
+// Output      : Void                            //
+// Deskripsi   : Menampilkan pilihan fitur       //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void fitur()
 {
     bersih();
@@ -555,6 +732,17 @@ void fitur()
     koor(50,27); printf("Tanya Dokter");
     koor(50,30); printf("Bakar Kalori");
 }
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : Tanggal_Waktu                   //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menampilkan tanggal dan waktu   //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void Tanggal_Waktu(){
     time_t current;
     time(&current);
@@ -581,9 +769,22 @@ void Tanggal_Waktu(){
     koor(15,12);
     printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
 }
-// Fungsi Program BMI
-void Loading(){
 
+//------Fungsi Dalam Fitur Penghitungan BMI------//
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : Loading                         //
+// Input       : void                            //
+// Output      : String                          //
+// Deskripsi   : Jeda dari satu fungsi ke fungsi //
+//               lainnya                         //
+//                                               //
+// Created by Utari                              //
+// Updated by Herry                              //
+//===============================================//
+//===============================================//
+void Loading(){
     bersih();
     setcolor(10);
     box(10,7,117,35);
@@ -601,15 +802,35 @@ void Loading(){
         printf(" %c ",223);
         Sleep(180); } }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : Loading2                        //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Jeda dari satu fungsi ke fungsi //
+//               lainnya                         //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void Loading2(){
-
      for(int i=1 ; i<=10; i++){
         setcolor(10);
         printf(" %c ",223);
         Sleep(180); } }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : Main_Menu_BMI                   //
+// Input       : Int qna1                        //
+// Output      : String                          //
+// Deskripsi   : Menampilkan deskripsi program   //
+//               dan juga usia user              //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void Main_Menu_BMI(){
-
    bersih();
    setcolor(10);
    box(5,7,116,30);
@@ -647,8 +868,18 @@ void Main_Menu_BMI(){
    ask1();
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : ask1                            //
+// Input       : Int gender, int age1, int BBL   //
+// Output      : String                          //
+// Deskripsi   : Menghitung BMI user sesuai      //
+//               dengan jenis kelamin            //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void ask1(){
-
    bersih();
    Loading();
    bersih();
@@ -774,8 +1005,19 @@ void ask1(){
         printf("Data yang anda masukkan salah");
         break;
     }
-
 }
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : Calculate_BMI                   //
+// Input       : Void                            //
+// Output      : Int                             //
+// Deskripsi   : Menampilkan hasil penghitungan  //
+//               BMI                             //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 double Calculate_BMI(){
 
     if(qna1 == 1){
@@ -811,8 +1053,19 @@ double Calculate_BMI(){
             return (mess/((height/100)*(height/100)));
     }
   }
-
 }
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : saran                           //
+// Input       : Void                            //
+// Output      : Int                             //
+// Deskripsi   : Menampilkan BMI normal dari user//
+//               tersebut                        //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 double saran(){
 
     hasil = Calculate_BMI();
@@ -985,7 +1238,6 @@ double saran(){
                 return hasil - 12000;
             }
          }
-
       }
       else if(gender == 2){
         if(age1 == 7.0){
@@ -1054,11 +1306,20 @@ double saran(){
         else if(hasil > 24.9){
             return hasil - 24.9;
         }
-
    }
-
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : up_or_down                      //
+// Input       : int qna2                        //
+// Output      : String                          //
+// Deskripsi   : Fungsi untuk user melakukan pen-//
+//               cetakan file                    //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void up_or_down(){
 
     printf("\n");
@@ -1083,7 +1344,17 @@ void up_or_down(){
     printf("\n");
 }
 
-
+//===============================================//
+//===============================================//
+// Nama Fungsi : Final_BMI                       //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menampilkan hasil kategori dari //
+//               BMI user                        //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void Final_BMI(){
 
     hasil = Calculate_BMI();
@@ -1349,9 +1620,7 @@ void Final_BMI(){
     }else if(hasil >= 40.0){
         koor(51,26);printf("Diabetes tingkat III");
     }
-
     }
-
     else{
         koor(20,32);
         printf("Tidak Valid");
@@ -1360,10 +1629,18 @@ void Final_BMI(){
     }
 }
 
-
-
+//===============================================//
+//===============================================//
+// Nama Fungsi : result_BMI                      //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menulis hasil BMI user dalam    //
+//               file                            //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void result_BMI(){
-
 
     hasil  = Calculate_BMI();
     double hasil_saran = saran();
@@ -1451,7 +1728,6 @@ void result_BMI(){
     fclose (fpoin);
     }
   }
-
     else if (qna1 == 3 || qna1 == 4){
     if (qna2 == 1){
     FILE*fpoin;
@@ -1619,7 +1895,20 @@ void result_BMI(){
     }
     }
 }
-//Fungsi Perhitungan Kalori
+
+//-----Fungsi Dalam Fitur Penghitungan Kalori----//
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : utama                           //
+// Input       : int gender                      //
+// Output      : String                          //
+// Deskripsi   : Menu utama untuk fitur penghi-  //
+//               tungan kalori                   //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void utama(){
 bersih();
    setcolor(10);
@@ -1664,6 +1953,17 @@ bersih();
     tanya();
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : BMR                             //
+// Input       : Void                            //
+// Output      : int                             //
+// Deskripsi   : Menampilkan hasil sesuai dengan //
+//               gender                          //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 double BMR(){
 
     if(gender == 1){
@@ -1674,6 +1974,16 @@ double BMR(){
     }
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : tanya                           //
+// Input       : int ask                         //
+// Output      : String                          //
+// Deskripsi   : Pemilihan level aktivitas fisik //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void tanya(){
 
     printf("\n");
@@ -1699,6 +2009,17 @@ void tanya(){
     koor(10,65);result_TEE();
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : TEE                             //
+// Input       : Void                            //
+// Output      : Int                             //
+// Deskripsi   : Menampilkan hasil saat input ask//
+//               sama dengan 1                   //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 double TEE(){
 
     bmr = BMR();
@@ -1714,6 +2035,17 @@ double TEE(){
     }
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : Final_TEE                       //
+// Input       : Void                            //
+// Output      : Int                             //
+// Deskripsi   : Menampilkan perbandingan TEE    //
+//               sesuai dengan gender            //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 double Final_TEE(){
 
     hasil_TEE = TEE();
@@ -1733,6 +2065,18 @@ double Final_TEE(){
         }
     }
 }
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : result_TEE                      //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menampilkan hasil dari analisis //
+//               perhitungan kalori              //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void result_TEE(){
 
     hasiltee = Final_TEE();
@@ -1754,6 +2098,19 @@ void result_TEE(){
     }
 }
 
+//--------Fungsi Dalam Fitur Tanya Dokter--------//
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : tanyaDokter                     //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menampilkan pilihan hari untuk  //
+//               sesi konsultasi                 //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 int tanyaDokter (int hari, int dokter){
     bersih();
     setcolor(10);
@@ -1761,17 +2118,31 @@ int tanyaDokter (int hari, int dokter){
     box1(40,12,107,30);
     box1(66,14,82,16);
     TanggalWaktu();
-	koor(68,15); printf("TANYA DOKTER");
-	koor(45,18); printf("Pilih hari untuk sesi tanya jawab : ");
-	koor (50,20); printf("Senin");
-	koor (50,22); printf("Selasa");
-	koor (50,24); printf("Rabu");
-	koor (50,26); printf("Kamis");
-	koor (50,28); printf("Jumat");
+    koor(68,15); printf("TANYA DOKTER");
+    koor(45,18); printf("Pilih hari untuk sesi tanya jawab : ");
+    koor (50,20); printf("Senin");
+    koor (50,22); printf("Selasa");
+    koor (50,24); printf("Rabu");
+    koor (50,26); printf("Kamis");
+    koor (50,28); printf("Jumat");
 
-	printf("\n\n\n");
+    printf("\n\n\n");
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : mainTanyaDokter                 //
+// Input       : int hari, int dokter,           //
+//               int pengguna, int userID, char  //
+//               password, int panjangX,int      //
+//               panjangY,int button             //
+// Output      : String                          //
+// Deskripsi   : Menu utama dari fitur tanya     //
+//               dokter                          //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void mainTanyaDokter (int hari, int dokter, int pengguna, int userID, char password, int panjangX,int panjangY,int button)
 {
     panjangX = 47;
@@ -1845,49 +2216,49 @@ if(panjangX == 47 && panjangY == 20)
     koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
     koor(86,31);scanf("%d",&dokter);
 
-		switch (dokter){
-			case 1 :
-			    bersih();
+        switch (dokter){
+            case 1 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 2 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 2 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 3 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 3 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
             default :
                 printf("Input Anda salah!");
-		}
+        }
 }
 else if (panjangX == 47 && panjangY == 22)
 {
@@ -1913,47 +2284,47 @@ bersih();
     koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
     koor(86,31);scanf("%d",&dokter);
 
-		switch (dokter){
-			case 1 :
-			    bersih();
+        switch (dokter){
+            case 1 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putra");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 2 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putra");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 2 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 3 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 3 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ananda");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-		}
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ananda");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+        }
 }
 else if (panjangX == 47 && panjangY == 24)
 {
@@ -1979,47 +2350,47 @@ else if (panjangX == 47 && panjangY == 24)
     koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
     koor(86,31);scanf("%d",&dokter);
 
-		switch (dokter){
-			case 1 :
-			    bersih();
+        switch (dokter){
+            case 1 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 2 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 2 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Bila Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 3 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Bila Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 3 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Kartika Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-		}
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Kartika Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+        }
 }
 else if(panjangX == 47 && panjangY == 26)
 {
@@ -2045,47 +2416,47 @@ else if(panjangX == 47 && panjangY == 26)
     koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
     koor(86,31);scanf("%d",&dokter);
 
-		switch (dokter){
-			case 1 :
-			    bersih();
+        switch (dokter){
+            case 1 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 2 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 2 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 3 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 3 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
-				koor(45,16);printf ("----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-		}
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+                koor(45,16);printf ("----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+        }
 }
 else if(panjangX == 47 && panjangY == 28)
 {
@@ -2111,54 +2482,66 @@ else if(panjangX == 47 && panjangY == 28)
     koor(48,31);printf("Masukkan nomor dokter pilihan Anda : ");
     koor(86,31);scanf("%d",&dokter);
 
-		switch (dokter){
-			case 1 :
-			    bersih();
+        switch (dokter){
+            case 1 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 2 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Putu Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 2 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-			case 3 :
-			    bersih();
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Made Putra");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+            case 3 :
+                bersih();
                 setcolor(10);
                 box(30,7,117,35);
                 box1(40,12,107,30);
                 setcolor(7);
-				koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
-				koor(45,16);printf ("-----------------------------------------------------------");
-				koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
-				koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
-				koor(45,22);printf("Kontak : 081234321111");
-				koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
-				break;
-		}
+                koor(45,15);printf ("Anda akan melakukan sesi tanya jawab bersama dr. Ari Putri");
+                koor(45,16);printf ("-----------------------------------------------------------");
+                koor(45,20);printf("Sesi tanya jawab dilayani pada pukul 08.00-14.00 WITA");
+                koor(45,21);printf("Hubungi asisten dokter 1 jam sebelum tanya jawab");
+                koor(45,22);printf("Kontak : 081234321111");
+                koor(45,23);printf("Selamat Melangsungkan Sesi Tanya Jawab!");
+                break;
+        }
 }
 getch();
 return(0);
 }
 
+//---Fungsi dalam Fitur Rekomendasi Menu Sehat---//
 
-//Fitur Rekomendasi Menu Sehat
+//===============================================//
+//===============================================//
+// Nama Fungsi : utama_sehat                     //
+// Input       : int bmi                         //
+// Output      : String                          //
+// Deskripsi   : Menampilkan menu utama fitur    //
+//               rekomendasi menu sehat          //
+//                                               //
+// Created by Darryl                             //
+// Updated by Herry                              //
+//===============================================//
+//===============================================//
 void utama_sehat(){
 bersih();
 Tanggal_Waktu();
@@ -2289,6 +2672,16 @@ box(12,7,117,60);
 return 0;
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : Rekomendasi_makanan             //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Mencetak menu hasil pada file m //
+//                                               //
+// Created by Herry                              //
+//===============================================//
+//===============================================//
 void Rekomendasi_makanan (){
 
     if(bmi==1){
@@ -2432,7 +2825,20 @@ void Rekomendasi_makanan (){
     }
 }
 
-//Fungsi Fitur Bakar Kalori
+//--------Fungsi Pada Fitur Bakar Kalori---------//
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : perhitungankalorisaatolahraga   //
+// Input       : char jenisaktivitas             //
+// Output      : String                          //
+// Deskripsi   : Menu utama dari fitur perhitung-//
+//               an bakar kalori                 //
+//                                               //
+// Created by Darryl                             //
+// Updated by Herry                              //
+//===============================================//
+//===============================================//
 void perhitungankalorisaatolahraga()
 {
 bersih();
@@ -2443,18 +2849,18 @@ box(15,7,117,35);
     koor(47,11);printf("                 Menghitung Pembakaran Kalori            \n");
     koor(47,12);printf("                       Saat Berolahraga                   \n");
     koor(47,13);printf("============================================================\n");
-	koor(47,14);printf("Pilih aktivitas yang sudah anda lakukan   : \n");
-	koor(47,15);printf("1.Bersepeda     || Kode = s\n");
-	koor(47,16);printf("2.Jogging       || Kode = j\n");
-	koor(47,17);printf("3.Basket        || Kode = b\n");
-	koor(47,18);printf("4.Yoga          || Kode = y\n");
-	koor(47,19);printf("5.Sepak Bola    || Kode = S\n");
-	koor(47,20);printf("6.Voli          || Kode = v\n");
-	koor(47,21);printf("7.Badminton     || Kode = B\n");
-	koor(47,22);printf("\n");
-	char jenisaktivitas;
-	koor(47,24);printf("Input aktivitas yang anda lakukan         : ");
-	scanf("%c", &jenisaktivitas);
+    koor(47,14);printf("Pilih aktivitas yang sudah anda lakukan   : \n");
+    koor(47,15);printf("1.Bersepeda     || Kode = s\n");
+    koor(47,16);printf("2.Jogging       || Kode = j\n");
+    koor(47,17);printf("3.Basket        || Kode = b\n");
+    koor(47,18);printf("4.Yoga          || Kode = y\n");
+    koor(47,19);printf("5.Sepak Bola    || Kode = S\n");
+    koor(47,20);printf("6.Voli          || Kode = v\n");
+    koor(47,21);printf("7.Badminton     || Kode = B\n");
+    koor(47,22);printf("\n");
+    char jenisaktivitas;
+    koor(47,24);printf("Input aktivitas yang anda lakukan         : ");
+    scanf("%c", &jenisaktivitas);
             if(jenisaktivitas == 's'){
                 float menit, kalori, pembakarankalori;
                 kalori = 8.66;
@@ -2464,7 +2870,7 @@ box(15,7,117,35);
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bersepeda sebanyak %.2f\n",pembakarankalori);
 
-	}
+    }
             if(jenisaktivitas == 'j'){
                 float km, kalori, pembakarankalori;
                 kalori = 60.0;
@@ -2473,7 +2879,7 @@ box(15,7,117,35);
                     pembakarankalori = km * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan jogging sebanyak %.2f\n",pembakarankalori);
-	}
+    }
              if(jenisaktivitas == 'b'){
                 float menit, kalori, pembakarankalori;
                 kalori = 9.83;
@@ -2482,7 +2888,7 @@ box(15,7,117,35);
                     pembakarankalori = menit * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain basket sebanyak %.2f\n",pembakarankalori);
-	}
+    }
             if(jenisaktivitas == 'y'){
                 float menit, kalori, pembakarankalori;
                 kalori = 5.0;
@@ -2491,7 +2897,7 @@ box(15,7,117,35);
                     pembakarankalori = menit * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan melakukan yoga sebanyak %.2f\n",pembakarankalori);
-	}
+    }
             if(jenisaktivitas == 'S'){
                 float menit, kalori, pembakarankalori;
                 kalori = 10.2;
@@ -2500,7 +2906,7 @@ box(15,7,117,35);
                     pembakarankalori = menit * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain sepak bola sebanyak %.2f\n",pembakarankalori);
-	}
+    }
             if(jenisaktivitas == 'v'){
                 float menit, kalori, pembakarankalori;
                 kalori = 4.9;
@@ -2509,7 +2915,7 @@ box(15,7,117,35);
                     pembakarankalori = menit * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain voli sebanyak %.2f\n",pembakarankalori);
-	}
+    }
             if(jenisaktivitas == 'B'){
                 float menit, kalori, pembakarankalori;
                 kalori = 4.53;
@@ -2518,17 +2924,30 @@ box(15,7,117,35);
                     pembakarankalori = menit * kalori;
                     koor(47,27);printf("\n");
                     koor(47,28);printf("Anda telah membakar kalori dengan bermain badminton sebanyak %.2f\n",pembakarankalori);
-	}
+    }
 
 
     koor(47,31);printf(" \n");
-	koor(47,32);printf("============================================================\n");
+    koor(47,32);printf("============================================================\n");
     koor(47,33);printf("          Terima kasih telah menggunakan fitur ini          \n");
     koor(47,34);printf("============================================================\n");
 
-  	return 0;
+    return 0;
 }
 
+//------------Fungsi Pada Fitur Tracker----------//
+
+//===============================================//
+//===============================================//
+// Nama Fungsi : TanggalWaktu                    //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Menampilkan tanggal dan waktu   //
+//                                               //
+// Created by Herry                              //
+// Updated by Utari                              //
+//===============================================//
+//===============================================//
 void TanggalWaktu(){
 
     int tanggal;
@@ -2564,6 +2983,21 @@ void TanggalWaktu(){
     koor(101,10);printf("%02d/%02d/%d\n", tanggal,bulan1,tahun);
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : tracker                         //
+// Input       : int pilihan, double penurunan1, // 
+//               double penurunan2, double       //
+//               kenaikan1 , double kenaikan2,   // 
+//               double bulanPertama, double     //
+//               bulanKedua, double bulanKetiga  //
+// Output      : String                          //
+// Deskripsi   : Menu utama dari fitur tracker   //
+//                                               //
+// Created by Utari                              //
+// Updated by Herry                              //
+//===============================================//
+//===============================================//
 void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1 , double kenaikan2, double bulanPertama, double bulanKedua, double bulanKetiga)
 {
     bersih();
@@ -2574,16 +3008,16 @@ void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1
     setcolor(7);
     koor(60,14);printf("Masukkan BMI anda");
     koor(45,19);printf("BMI bulan ke-1 : ");
-	koor(67,19);scanf("%lf", &bulanPertama);
-	koor(45,23);printf("BMI bulan ke-2 : ");
-	koor(67,23);scanf("%lf", &bulanKedua);
-	koor(45,27); printf("BMI bulan ke-3 : ");
-	koor(67,27);scanf("%lf", &bulanKetiga);
+    koor(67,19);scanf("%lf", &bulanPertama);
+    koor(45,23);printf("BMI bulan ke-2 : ");
+    koor(67,23);scanf("%lf", &bulanKedua);
+    koor(45,27); printf("BMI bulan ke-3 : ");
+    koor(67,27);scanf("%lf", &bulanKetiga);
 
-	bersih();
+    bersih();
 
-	setcolor(10);
-	box(30,7,117,35);
+    setcolor(10);
+    box(30,7,117,35);
     //box rekapitulasi
     box1(31,8,116,20);
     box1(63,9,90,11);
@@ -2592,43 +3026,54 @@ void tracker(int pilihan, double penurunan1, double penurunan2, double kenaikan1
     box1(63,22,90,24);
 
     koor(68,10); printf("REKAPITULASI BMI");
-	koor(35,14); printf("BMI bulan pertama adalah %.2f", bulanPertama);
-	koor(35,16); printf("BMI bulan kedua adalah %.2f", bulanKedua);
-	koor(35,18); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
+    koor(35,14); printf("BMI bulan pertama adalah %.2f", bulanPertama);
+    koor(35,16); printf("BMI bulan kedua adalah %.2f", bulanKedua);
+    koor(35,18); printf("BMI bulan ketiga adalah %.2f", bulanKetiga);
 
     koor(75,23); printf("TRACKING");
 
-	if(bulanPertama>bulanKedua)
-	{
-		penurunan1=bulanPertama-bulanKedua;
-		koor(35,27);printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
-	}
-	else if(bulanKedua>bulanPertama)
-	{
-		kenaikan1=bulanKedua-bulanPertama;
-		koor(35,27); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
-	}
-	else if(bulanPertama=bulanKedua)
-	{
-		koor(35,27);printf("BMI anda stabil pada bulan kedua");
-	}
+    if(bulanPertama>bulanKedua)
+    {
+        penurunan1=bulanPertama-bulanKedua;
+        koor(35,27);printf("Pada bulan kedua BMI anda mengalami penurunan sebesar %.2f", penurunan1);
+    }
+    else if(bulanKedua>bulanPertama)
+    {
+        kenaikan1=bulanKedua-bulanPertama;
+        koor(35,27); printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan1);
+    }
+    else if(bulanPertama=bulanKedua)
+    {
+        koor(35,27);printf("BMI anda stabil pada bulan kedua");
+    }
 
-	if(bulanKedua>bulanKetiga)
-	{
-		penurunan2=bulanKedua - bulanKetiga;
-		koor(35,30); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
-	}
-	else if(bulanKetiga>bulanKedua)
-	{
-		kenaikan2=bulanKetiga - bulanKedua;
-		koor(35,30);printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
-	}
-	else if(bulanKetiga=bulanKedua)
-	{
-		koor(35,30); printf("BMI anda stabil pada bulan ketiga");
-	}
+    if(bulanKedua>bulanKetiga)
+    {
+        penurunan2=bulanKedua - bulanKetiga;
+        koor(35,30); printf("Pada bulan ketiga BMI anda mengalami penurunan sebesar %.2f", penurunan2);
+    }
+    else if(bulanKetiga>bulanKedua)
+    {
+        kenaikan2=bulanKetiga - bulanKedua;
+        koor(35,30);printf("Pada bulan kedua BMI anda mengalami kenaikan sebesar %.2f", kenaikan2);
+    }
+    else if(bulanKetiga=bulanKedua)
+    {
+        koor(35,30); printf("BMI anda stabil pada bulan ketiga");
+    }
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : back                            //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : tampilan untuk user beralih ke  //
+//               fungsi sebelumnya atau keluar   //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void back()
 {
     bersih();
@@ -2639,9 +3084,20 @@ void back()
     box1(84,19,89,21);
     koor(60,20); printf("Back");
     koor(85,20); printf("Exit");
-
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : backpremium                     //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Akses untuk user beralih ke pro-//
+//               gram sebelumnya atau keluar dari//
+//               fitur premium                   //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void backpremium()
 {
     panjangX = 56;
@@ -2674,6 +3130,18 @@ void backpremium()
     }
 }
 
+//===============================================//
+//===============================================//
+// Nama Fungsi : backreg                         //
+// Input       : Void                            //
+// Output      : String                          //
+// Deskripsi   : Akses untuk user beralih ke pro-//
+//               gram sebelumnya atau keluar dari//
+//               fitur user reguler              //
+//                                               //
+// Created by Utari                              //
+//===============================================//
+//===============================================//
 void backreg()
 {
     panjangX = 56;
