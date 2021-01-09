@@ -63,7 +63,7 @@ void Loading2();
 //===============================================//
 //===============================================//
 int ask;
-double bmr;
+double bmr:
 double hasiltee,hasil_TEE;
 double BMR();
 void utama();
